@@ -37,6 +37,7 @@ Define your xml as:
 ```xml
 <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/shimmer_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:demo_child_count="10"
