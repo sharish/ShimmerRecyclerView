@@ -82,8 +82,8 @@ License
 --------
 The repo is released under following licenses
 
-<a href="LICENSE">Apache License</a> for ShimmerRecycler<br>
-<a href="FACEBOOK_LICENSE">BSD License</a> for Facebook's Shimmer-Android
+<a href="LICENSE.md">Apache License</a> for ShimmerRecycler<br>
+<a href="FACEBOOK_LICENSE.md">BSD License</a> for Facebook's Shimmer-Android
 
 
 
