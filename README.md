@@ -66,7 +66,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.cooltechworks:ScratchView:v1.1'
+    compile 'com.github.cooltechworks:ShimmerRecyclerView:v1.0'
 }
 ```
 
