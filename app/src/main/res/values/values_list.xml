@@ -1,0 +1,61 @@
+<!--
+Copyright 2017 Harish Sridharan
+
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+<resources>
+
+    <string name="ab_list_title">Stories to read</string>
+    <color name="colorPrimary">#455a64</color>
+    <color name="colorPrimaryDark">#374850</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#8b8b8b</color>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:label">@string/ab_list_title</item>
+    </style>
+
+
+    <string name="got_titletext">Who Will Ride The Third Dragon In \'Game Of Thrones\' Season 7?</string>
+    <string name="got_image_url">http://cdn.idigitaltimes.com/sites/idigitaltimes.com/files/styles/image_embed/public/2016/04/29/game-thrones-daenerys-dragon-drogon.jpg</string>
+    <string name="got_subtext">Game of Thrones season 7 will kick off a new age of Game of Thrones, with the show becoming a true epic fantasy for the first time. Don’t worry, it will remain a high political drama too, but the war between ice and fire isn’t far off now, and Daenerys Targaryen seems destined to lead the fight</string>
+    <string name="got_summarytext">You\'ve shown interest in Game of Thrones series</string>
+
+    <string name="ndtv_titletext">Agni 5, India\'s Longest Range Nuclear Capable Missile, Successfully Test Fired: 10 Points</string>
+    <string name="ndtv_subtext">Agni-5, India\'s longest range nuclear capable missile, was successfully test fired from the Kalam Island off Odisha coast today by the Defence Research and Development Organisation or DRDO. The intercontinental surface-to-surface ballistic missile, the latest in India\'s \"Agni\" family of medium to intercontinental range missiles, with new technology for navigation and guidance, gives India the strategic depth it needs to contain its enemies, say scientists. Ready to be deployed, the Agni-5 will soon join India\'s military arsenal</string>
+    <string name="ndtv_image_url">http://i.ndtvimg.com/i/2016-12/agni-5_650x400_71482721510.jpg</string>
+    <string name="ndtv_summarytext">You\'ve shown interest in Nuclear Capable Missles</string>
+
+    <string name="op_titletext">OnePlus releases leather case for OnePlus 3 and 3T</string>
+    <string name="op_subtext">OnePlus has released a leather case for the OnePlus 3/3T. Even though there are several cases for the OnePlus 3/3T, this one will offer a premium look for the smartphone. It has textured calfskin leather blend along with a classic matte finish making it easy to clean and also offers a comfortable grip.</string>
+    <string name="op_image_url">http://images.fonearena.com/blog/wp-content/uploads/2016/12/OnePlus-3-and-3T-leather-case-1.jpg</string>
+    <string name="op_summarytext">You\'ve shown interest in One Plus</string>
+
+
+    <string name="jet_titletext">Jet Airways Extends Sale, Offers Tickets Starting Rs. 990</string>
+    <string name="jet_subtext">Jet Airways has extended its promotional scheme offering fares starting as low as Rs. 990 on select domestic flights under economy class travel. Under Jet Airways\' \"Best Fares Forever\" offer, tickets must be purchased till December 27, 2016, for travel on or after January 4, 2017. \"Tickets must be purchased a minimum of 15 days prior departure,\" the airline said on its website, adding that limited seats are available under the offer on a first come, first serve basis.</string>
+    <string name="jet_image_url">http://i.ndtvimg.com/i/2016-11/jet-airways_650x400_51480009251.jpg</string>
+    <string name="jet_summarytext">You\'ve shown interest in Jet Airways</string>
+
+
+</resources>
