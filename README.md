@@ -1,4 +1,4 @@
-# ShimmerRecycler
+# ShimmerRecyclerView
 
 
 Intro
@@ -37,11 +37,8 @@ Define your xml as:
 ```xml
 <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/shimmer_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
         app:demo_child_count="10"
         app:demo_grid_child_count="2"
         app:demo_layout="@layout/layout_demo_grid"
@@ -77,6 +74,11 @@ Developed By
 
 * Harish Sridharan - <harish.sridhar@gmail.com>
 
+
+Acknowledgements
+----------------
+
+* Facebook for <a href="https://github.com/facebook/shimmer-android">Shimmer Android</a> which lies as a base for this repo.
 
 License
 --------
