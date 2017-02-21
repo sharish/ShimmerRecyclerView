@@ -45,5 +45,6 @@
             <enum name="radial" value="1" />
         </attr>
         <attr name="tilt" format="float"/>
+        <attr name="group" format="string"/>
     </declare-styleable>
 </resources>
