@@ -18,13 +18,13 @@ limitations under the License.
 -->
 <resources>
     <declare-styleable name="ShimmerRecyclerView">
-        <attr name="demo_layout" format="reference"/>
-        <attr name="demo_child_count" format="integer"/>
-        <attr name="demo_layout_manager_type" format="enum">
+        <attr name="shimmer_demo_layout" format="reference"/>
+        <attr name="shimmer_demo_child_count" format="integer"/>
+        <attr name="shimmer_demo_layout_manager_type" format="enum">
             <enum name="linear_vertical" value="0" />
             <enum name="linear_horizontal" value="1" />
             <enum name="grid" value="2" />
         </attr>
-        <attr name="demo_grid_child_count" format="integer" />
+        <attr name="shimmer_demo_grid_child_count" format="integer" />
     </declare-styleable>
 </resources>

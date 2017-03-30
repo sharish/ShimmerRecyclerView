@@ -19,10 +19,10 @@ limitations under the License.
                                          xmlns:app="http://schemas.android.com/apk/res-auto"
                                          android:layout_width="match_parent"
                                          android:layout_height="wrap_content"
-                                         app:angle="cw_0"
-                                         app:shape="linear"
-                                         app:base_alpha="0.85"
-                                         app:duration="1000"
-                                         app:tilt="5"
+                                         app:shimmer_angle="cw_0"
+                                         app:shimmer_shape="linear"
+                                         app:shimmer_base_alpha="0.85"
+                                         app:shimmer_duration="1000"
+                                         app:shimmer_tilt="5"
 
     />
