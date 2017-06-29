@@ -66,7 +66,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.sharish:ShimmerRecyclerView:v1.0'
+    compile 'com.github.sharish:ShimmerRecyclerView:v1.0.1'
 }
 ```
 
