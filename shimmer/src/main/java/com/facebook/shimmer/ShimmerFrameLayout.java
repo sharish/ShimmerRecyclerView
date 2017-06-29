@@ -271,8 +271,8 @@ public class ShimmerFrameLayout extends FrameLayout {
           mMask.tilt = a.getFloat(R.styleable.ShimmerFrameLayout_shimmer_tilt, 0);
         }
 
-        if (a.hasValue(R.styleable.ShimmerFrameLayout_group)) {
-          group = a.getString(R.styleable.ShimmerFrameLayout_group);
+        if (a.hasValue(R.styleable.ShimmerFrameLayout_shimmer_group)) {
+          group = a.getString(R.styleable.ShimmerFrameLayout_shimmer_group);
         }
 
       } finally {
