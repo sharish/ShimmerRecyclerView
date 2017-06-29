@@ -66,16 +66,16 @@ public class ShimmerRecyclerView extends RecyclerView {
         mShimmerAdapter = new ShimmerAdapter();
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ShimmerRecyclerView, 0, 0);
         try {
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_demo_layout)) {
-                setDemoLayoutReference(a.getResourceId(R.styleable.ShimmerRecyclerView_demo_layout, R.layout.layout_sample_view));
+            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout)) {
+                setDemoLayoutReference(a.getResourceId(R.styleable.ShimmerRecyclerView_shimmer_demo_layout, R.layout.layout_sample_view));
             }
 
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_demo_child_count)) {
-                setDemoChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_demo_child_count, 1));
+            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count)) {
+                setDemoChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count, 1));
             }
 
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_demo_layout_manager_type)) {
-                int value = a.getInteger(R.styleable.ShimmerRecyclerView_demo_layout_manager_type, 0);
+            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type)) {
+                int value = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type, 0);
                 switch (value) {
                     case 1:
                         setDemoLayoutManager(LayoutMangerType.LINEAR_HORIZONTAL);
@@ -91,8 +91,8 @@ public class ShimmerRecyclerView extends RecyclerView {
                 }
             }
 
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_demo_grid_child_count)) {
-                setGridChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_demo_grid_child_count, 2));
+            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_grid_child_count)) {
+                setGridChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_grid_child_count, 2));
             }
 
         } finally {
@@ -208,6 +208,15 @@ public class ShimmerRecyclerView extends RecyclerView {
 
         super.setAdapter(adapter);
 
+    }
+
+    /**
+     * Retrieves the actual adapter that contains the data set or null if no adapter is set.
+     *
+     * @return The actual adapter
+     */
+    public Adapter getActualAdapter() {
+        return mActualAdapter;
     }
 
 
