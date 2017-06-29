@@ -45,6 +45,7 @@
             <enum name="radial" value="1" />
         </attr>
         <attr name="shimmer_tilt" format="float"/>
+        <attr name="shimmer_group" format="string"/>
 
     </declare-styleable>
 </resources>
