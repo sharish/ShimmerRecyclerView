@@ -32,6 +32,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RadialGradient;
 import android.graphics.Shader;
+import android.support.v4.util.SimpleArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
@@ -40,6 +41,16 @@ import android.widget.FrameLayout;
 import com.cooltechworks.views.shimmer.R;
 
 public class ShimmerFrameLayout extends FrameLayout {
+
+  private static final SimpleArrayMap<String, Bitmap> sUnmaskBitmapCache = new SimpleArrayMap<>();
+  private static final SimpleArrayMap<String, MaskBitmapCacheEntry> sMaskBitmapCache = new SimpleArrayMap<>();
+  private static final SimpleArrayMap<String, Integer> sAnimatingGroupMembers = new SimpleArrayMap<>();
+
+  private static class MaskBitmapCacheEntry {
+    Bitmap bitmap;
+    int maskOffsetX;
+    int maskOffsetY;
+  }
 
   private static final String TAG = "ShimmerFrameLayout";
   private static final PorterDuffXfermode DST_IN_PORTER_DUFF_XFERMODE = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
@@ -147,6 +158,7 @@ public class ShimmerFrameLayout extends FrameLayout {
   private int mRepeatCount;
   private int mRepeatDelay;
   private int mRepeatMode;
+  private String group = "";
 
   private int mMaskOffsetX;
   private int mMaskOffsetY;
@@ -156,6 +168,9 @@ public class ShimmerFrameLayout extends FrameLayout {
 
   protected ValueAnimator mAnimator;
   protected Bitmap mMaskBitmap;
+
+  private boolean mUnmaskFromCache;
+  private boolean mMaskFromCache;
 
   public ShimmerFrameLayout(Context context) {
     this(context, null, 0);
@@ -228,7 +243,7 @@ public class ShimmerFrameLayout extends FrameLayout {
             case 0:
               mMask.shape = MaskShape.LINEAR;
               break;
-            case 2:
+            case 1:
               mMask.shape = MaskShape.RADIAL;
               break;
           }
@@ -255,6 +270,11 @@ public class ShimmerFrameLayout extends FrameLayout {
         if (a.hasValue(R.styleable.ShimmerFrameLayout_shimmer_tilt)) {
           mMask.tilt = a.getFloat(R.styleable.ShimmerFrameLayout_shimmer_tilt, 0);
         }
+
+        if (a.hasValue(R.styleable.ShimmerFrameLayout_group)) {
+          group = a.getString(R.styleable.ShimmerFrameLayout_group);
+        }
+
       } finally {
         a.recycle();
       }
@@ -595,6 +615,28 @@ public class ShimmerFrameLayout extends FrameLayout {
   }
 
   /**
+   * Get the group name of this layout. Layouts within same group will share bitmap caches.
+   * Shared bitmap cache should be used when layout's content is static and all layouts within a group have same content.
+   * The default is "", meaning no shared bitmap cache.
+   *
+   * @return Layout's group name.
+   */
+  public String getGroup() {
+    return group;
+  }
+
+  /**
+   * Set the group name of this layout. Layouts within same group will share bitmap caches.
+   * Shared bitmap cache should be used when layout's content is static and all layouts within a group have same content.
+   *
+   * @param group Layout's group name.
+   */
+  public void setGroup(String group) {
+    this.group = group;
+    resetAll();
+  }
+
+  /**
    * Get the tilt angle of the highlight, in degrees. The default value is 20.
    *
    * @return The highlight's tilt angle, in degrees.
@@ -624,6 +666,16 @@ public class ShimmerFrameLayout extends FrameLayout {
     Animator animator = getShimmerAnimation();
     animator.start();
     mAnimationStarted = true;
+
+    registerToCache();
+  }
+
+  private void registerToCache() {
+    if (group == null || group.isEmpty()) {
+      return;
+    }
+    final Integer count = sAnimatingGroupMembers.get(group);
+    sAnimatingGroupMembers.put(group, count == null ? 1 : count + 1);
   }
 
   /**
@@ -637,6 +689,27 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
     mAnimator = null;
     mAnimationStarted = false;
+    resetMaskBitmap();
+    resetRenderedView();
+
+    unregisterFromCache();
+  }
+
+  private void unregisterFromCache() {
+    if (group == null || group.isEmpty()) {
+      return;
+    }
+    final Integer count = sAnimatingGroupMembers.get(group);
+    if (count == null) {
+      return;
+    }
+    if (count > 1) {
+      sAnimatingGroupMembers.put(group, count - 1);
+    } else {
+      sUnmaskBitmapCache.remove(group);
+      sMaskBitmapCache.remove(group);
+      sAnimatingGroupMembers.remove(group);
+    }
   }
 
   /**
@@ -731,29 +804,67 @@ public class ShimmerFrameLayout extends FrameLayout {
       return false;
     }
     // First draw a desaturated version
-    drawUnmasked(new Canvas(unmaskBitmap));
+    if (!mUnmaskFromCache) {
+      drawUnmasked(new Canvas(unmaskBitmap));
+      sUnmaskBitmapCache.put(group, unmaskBitmap);
+    }
     canvas.drawBitmap(unmaskBitmap, 0, 0, mAlphaPaint);
 
     // Then draw the masked version
-    drawMasked(new Canvas(maskBitmap));
+    if (!mMaskFromCache) {
+      drawMasked(new Canvas(maskBitmap));
+      cacheMaskBitmap(maskBitmap);
+    }
     canvas.drawBitmap(maskBitmap, 0, 0, null);
 
     return true;
   }
 
+  private void cacheMaskBitmap(Bitmap maskBitmap) {
+    MaskBitmapCacheEntry cacheEntry = sMaskBitmapCache.get(group);
+    if (cacheEntry == null) {
+      cacheEntry = new MaskBitmapCacheEntry();
+    }
+    cacheEntry.bitmap = maskBitmap;
+    cacheEntry.maskOffsetX = mMaskOffsetX;
+    cacheEntry.maskOffsetY = mMaskOffsetY;
+    sMaskBitmapCache.put(group, cacheEntry);
+  }
+
   private Bitmap tryObtainRenderUnmaskBitmap() {
+    if (group != null && !group.isEmpty()) {
+      final Bitmap unmaskCached = sUnmaskBitmapCache.get(group);
+      if (unmaskCached != null && !unmaskCached.isRecycled()) {
+        mUnmaskFromCache = true;
+        return unmaskCached;
+      }
+    }
+
     if (mRenderUnmaskBitmap == null) {
       mRenderUnmaskBitmap = tryCreateRenderBitmap();
     }
+    mUnmaskFromCache = false;
     return mRenderUnmaskBitmap;
   }
 
+
   private Bitmap tryObtainRenderMaskBitmap() {
+    if (group != null && !group.isEmpty()) {
+      final MaskBitmapCacheEntry cacheEntry = sMaskBitmapCache.get(group);
+      if (cacheEntry != null && cacheEntry.maskOffsetX == mMaskOffsetX &&
+          cacheEntry.maskOffsetY == mMaskOffsetY && !cacheEntry.bitmap.isRecycled()) {
+        mMaskFromCache = true;
+        return cacheEntry.bitmap;
+      }
+    }
+
     if (mRenderMaskBitmap == null) {
       mRenderMaskBitmap = tryCreateRenderBitmap();
     }
+    mMaskFromCache = false;
     return mRenderMaskBitmap;
   }
+
 
   private Bitmap tryCreateRenderBitmap() {
     int width = getWidth();

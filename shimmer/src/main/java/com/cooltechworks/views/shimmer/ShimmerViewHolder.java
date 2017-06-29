@@ -33,6 +33,7 @@ public class ShimmerViewHolder extends RecyclerView.ViewHolder {
     public ShimmerViewHolder(LayoutInflater inflater, ViewGroup parent, int innerViewResId) {
         super(inflater.inflate(R.layout.viewholder_shimmer, parent, false));
         ShimmerFrameLayout layout = (ShimmerFrameLayout) itemView;
+        layout.setGroup(Integer.toString(innerViewResId));
 
         View innerView = inflater.inflate(innerViewResId, layout, false);
         layout.addView(innerView);
