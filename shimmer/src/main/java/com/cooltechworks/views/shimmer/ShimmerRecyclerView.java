@@ -210,6 +210,15 @@ public class ShimmerRecyclerView extends RecyclerView {
 
     }
 
+    /**
+     * Retrieves the actual adapter that contains the data set or null if no adapter is set.
+     *
+     * @return The actual adapter
+     */
+    public Adapter getActualAdapter() {
+        return mActualAdapter;
+    }
+
 
     public int getLayoutReference() {
         return mLayoutReference;
