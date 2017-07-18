@@ -23,9 +23,9 @@ Following are the attributes and methods to initialise the demo views.
 
 | XML Attributes | Java Methods | Explanation |
 | -------------  | ------------ | ----------- | 
-|```app:demo_child_count``` | ```setDemoChildCount(int)``` | Integer value that sets the number of demo views should be present in shimmer adapter |
-|```app:demo_layout``` | ```setDemoLayoutReference(int)``` | Layout reference to your demo view. Define your my_demo_view.xml and refer the layout reference here. |
-|```app:demo_layout_manager_type``` | ```setDemoLayoutManager(LayoutManagerType)``` | Layout manager of demo view. Can be one among linear_veritical or linear_horizontal or grid. |
+|```app:shimmer_demo_child_count``` | ```setDemoChildCount(int)``` | Integer value that sets the number of demo views should be present in shimmer adapter |
+|```app:shimmer_demo_layout``` | ```setDemoLayoutReference(int)``` | Layout reference to your demo view. Define your my_demo_view.xml and refer the layout reference here. |
+|```app:shimmer_demo_layout_manager_type``` | ```setDemoLayoutManager(LayoutManagerType)``` | Layout manager of demo view. Can be one among linear_veritical or linear_horizontal or grid. |
 
 
 
@@ -40,10 +40,10 @@ Define your xml as:
         android:id="@+id/shimmer_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:demo_child_count="10"
-        app:demo_grid_child_count="2"
-        app:demo_layout="@layout/layout_demo_grid"
-        app:demo_layout_manager_type="grid"
+        app:shimmer_demo_child_count="10"
+        app:shimmer_demo_grid_child_count="2"
+        app:shimmer_demo_layout="@layout/layout_demo_grid"
+        app:shimmer_demo_layout_manager_type="grid"
         />
 
 ```
