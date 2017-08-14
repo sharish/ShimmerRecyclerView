@@ -18,12 +18,11 @@ package com.cooltechworks.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.cooltechworks.sample.adapters.CardAdapter;
 import com.cooltechworks.sample.utils.BaseUtils;
+import com.cooltechworks.sample.utils.DemoConfiguration;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 
 public class DemoActivity extends AppCompatActivity {
@@ -37,26 +36,21 @@ public class DemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int type = getType();
+        final int type = getType();
 
         RecyclerView.LayoutManager layoutManager;
 
-        if (type == BaseUtils.TYPE_LIST) {
-            setTheme(R.style.AppTheme);
-            setContentView(R.layout.activity_list);
-            layoutManager = new LinearLayoutManager(this);
-            setTitle(R.string.ab_list_title);
-
-        } else {
-            setTheme(R.style.AppThemeGrid);
-            setContentView(R.layout.activity_grid);
-            layoutManager = new GridLayoutManager(this, 2);
-            setTitle(R.string.ab_grid_title);
-
-        }
+        final DemoConfiguration demoConfiguration = BaseUtils.getDemoConfiguration(type, this);
+        setTheme(demoConfiguration.getStyleResource());
+        setContentView(demoConfiguration.getLayoutResource());
+        layoutManager = demoConfiguration.getLayoutManager();
+        setTitle(demoConfiguration.getTitleResource());
 
         shimmerRecycler = (ShimmerRecyclerView) findViewById(R.id.shimmer_recycler_view);
 
+        if (demoConfiguration.getItemDecoration() != null) {
+            shimmerRecycler.addItemDecoration(demoConfiguration.getItemDecoration());
+        }
 
         mAdapter = new CardAdapter();
         mAdapter.setType(type);
@@ -70,8 +64,7 @@ public class DemoActivity extends AppCompatActivity {
             public void run() {
                 loadCards();
             }
-        }, 2000);
-
+        }, 3000);
     }
 
     private void loadCards() {

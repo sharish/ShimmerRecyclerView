@@ -18,6 +18,8 @@ package com.cooltechworks.views.shimmer;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -62,9 +64,13 @@ public class ShimmerRecyclerView extends RecyclerView {
     }
 
     private void init(AttributeSet attrs) {
-
         mShimmerAdapter = new ShimmerAdapter();
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ShimmerRecyclerView, 0, 0);
+
+        int mShimmerAngle;
+        int mShimmerColor;
+        Drawable mShimmerItemBackground;
+
         try {
             if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout)) {
                 setDemoLayoutReference(a.getResourceId(R.styleable.ShimmerRecyclerView_shimmer_demo_layout, R.layout.layout_sample_view));
@@ -95,13 +101,18 @@ public class ShimmerRecyclerView extends RecyclerView {
                 setGridChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_grid_child_count, 2));
             }
 
+            mShimmerAngle = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_angle, 0);
+            mShimmerColor = a.getColor(R.styleable.ShimmerRecyclerView_shimmer_demo_shimmer_color, getColor(R.color.default_shimmer_color));
+            mShimmerItemBackground = a.getDrawable(R.styleable.ShimmerRecyclerView_shimmer_demo_view_holder_item_background);
         } finally {
             a.recycle();
         }
 
+        mShimmerAdapter.setShimmerAngle(mShimmerAngle);
+        mShimmerAdapter.setShimmerColor(mShimmerColor);
+        mShimmerAdapter.setShimmerItemBackground(mShimmerItemBackground);
+
         showShimmerAdapter();
-
-
     }
 
     /**
@@ -232,5 +243,13 @@ public class ShimmerRecyclerView extends RecyclerView {
     public void setDemoLayoutReference(int mLayoutReference) {
         this.mLayoutReference = mLayoutReference;
         mShimmerAdapter.setLayoutReference(getLayoutReference());
+    }
+
+    private int getColor(int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return getContext().getColor(id);
+        } else {
+            return getResources().getColor(id);
+        }
     }
 }

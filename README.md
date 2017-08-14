@@ -11,11 +11,29 @@ A custom recycler view with shimmer views to indicate that views are loading. Th
 
     
 Demo Screen
-------    
+------
+
+There are two kinds of shimmer animation which you can see here:
+
+1. This type of shimmer effect uses the whole ViewHolder item to animate on.
 
 |     List Demo                |        Grid Demo              | 
 | ----------------------------  | ----------------------------- | 
 | <img src='screenshots/list_demo.gif' height=444 width=250 /> | <img src='screenshots/grid_demo.gif' height=444 width=250 />   |
+
+2. Here the shimmer effect only applied on for those views which background color is nontransparent.
+
+|     List Demo                |        Grid Demo              |
+| ----------------------------  | ----------------------------- |
+| <img src='screenshots/second_list_demo.gif' height=444 width=250 /> | <img src='screenshots/second_grid_demo.gif' height=444 width=250 />   |
+
+
+### Shimmer effect types
+
+1. As you can see the first demo examples show that the whole ViewHolder item is animated. To achieve the desired effect, the children of the ShimmerLayout should have a nontransparent background.
+2. You can achieve the second kind of shimmer effect by adding only one ViewGroup child to the ShimmerLayout with a transparent background. This ViewGroup will have the other views with nontransparent backgrounds on which the effect will be seen.
+
+   You may wonder how can you add background to the root view of the ViewHolder, if you do not have direct access to the ShimmerLayout and the only child has a nontransparent background. The solution for this is to use the `shimmer_demo_view_holder_item_background` attribute.
 
 ### Attributes and Methods
 
@@ -23,9 +41,12 @@ Following are the attributes and methods to initialise the demo views.
 
 | XML Attributes | Java Methods | Explanation |
 | -------------  | ------------ | ----------- | 
-|```app:demo_child_count``` | ```setDemoChildCount(int)``` | Integer value that sets the number of demo views should be present in shimmer adapter |
-|```app:demo_layout``` | ```setDemoLayoutReference(int)``` | Layout reference to your demo view. Define your my_demo_view.xml and refer the layout reference here. |
-|```app:demo_layout_manager_type``` | ```setDemoLayoutManager(LayoutManagerType)``` | Layout manager of demo view. Can be one among linear_veritical or linear_horizontal or grid. |
+|```app:shimmer_demo_child_count``` | ```setDemoChildCount(int)``` | Integer value that sets the number of demo views should be present in shimmer adapter. |
+|```app:shimmer_demo_layout``` | ```setDemoLayoutReference(int)``` | Layout reference to your demo view. Define your my_demo_view.xml and refer the layout reference here. |
+|```app:shimmer_demo_layout_manager_type``` | ```setDemoLayoutManager(LayoutManagerType)``` | Layout manager of demo view. Can be one among linear_vertical or linear_horizontal or grid. |
+|```app:shimmer_demo_shimmer_color``` | ``` - ``` | Color reference or value. It can be used to change the color of the shimmer line. |
+|```app:shimmer_demo_angle``` | ``` - ``` | Integer value between 0 and 30 which can modify the angle of the shimmer line. The default value is zero. |
+|```app:shimmer_demo_view_holder_item_background``` | ``` - ``` | Color or an xml drawable for the ViewHolder background if you want to achieve the second type of shimmer effect. |
 
 
 
@@ -44,6 +65,7 @@ Define your xml as:
         app:demo_grid_child_count="2"
         app:demo_layout="@layout/layout_demo_grid"
         app:demo_layout_manager_type="grid"
+        app:shimmer_demo_angle="20"
         />
 
 ```
@@ -76,17 +98,17 @@ Developed By
 * Harish Sridharan - <harish.sridhar@gmail.com>
 
 
-Acknowledgements
+Used libraries
 ----------------
 
-* Facebook for <a href="https://github.com/facebook/shimmer-android">Shimmer Android</a> which lies as a base for this repo.
+* <a href="https://github.com/team-supercharge/ShimmerLayout">ShimmerLayout</a>: the library which achieves the shimmer effect in a memory efficient way.
 
 License
 --------
 The repo is released under following licenses
 
 <a href="LICENSE.md">Apache License</a> for ShimmerRecycler<br>
-<a href="FACEBOOK_LICENSE.md">BSD License</a> for Facebook's Shimmer-Android
+<a href="https://github.com/team-supercharge/ShimmerLayout/blob/master/LICENSE.md">Apache License</a> for ShimmerLayout
 
 
 
