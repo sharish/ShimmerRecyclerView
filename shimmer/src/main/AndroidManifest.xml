@@ -15,8 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 -->
-<manifest package="com.cooltechworks.views.shimmer">
-
-    <application/>
-
-</manifest>
+<manifest package="com.cooltechworks.views.shimmer"/>
