@@ -26,5 +26,8 @@ limitations under the License.
             <enum name="grid" value="2" />
         </attr>
         <attr name="shimmer_demo_grid_child_count" format="integer" />
+        <attr name="shimmer_demo_shimmer_color" format="color|reference"/>
+        <attr name="shimmer_demo_angle" format="integer|reference"/>
+        <attr name="shimmer_demo_view_holder_item_background" format="color|reference"/>
     </declare-styleable>
 </resources>

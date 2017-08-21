@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="demo_light_transparent">#16000000</color>
+    <color name="demo_dark_transparent">#24000000</color>
+    <color name="default_shimmer_color">#e3e1e3</color>
+</resources>

@@ -15,10 +15,14 @@
  */
 package com.cooltechworks.sample.utils;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.cooltechworks.sample.R;
 import com.cooltechworks.sample.models.ItemCard;
+import com.cooltechworks.sample.utils.view.CardPaddingItemDecoration;
 
 /**
  * Created by sharish on 27/12/16.
@@ -26,7 +30,10 @@ import com.cooltechworks.sample.models.ItemCard;
 
 public class BaseUtils {
 
-    public static final int TYPE_LIST = 0, TYPE_GRID = 1;
+    public static final int TYPE_LIST = 0;
+    public static final int TYPE_GRID = 1;
+    public static final int TYPE_SECOND_LIST = 2;
+    public static final int TYPE_SECOND_GRID = 3;
 
     private static ItemCard[] getListCards(Resources resources) {
 
@@ -115,6 +122,61 @@ public class BaseUtils {
     }
 
     public static ItemCard[] getCards(Resources resources, int type) {
-        return type == TYPE_LIST ? getListCards(resources) : getGridCards(resources);
+        ItemCard[] itemCards;
+
+        switch (type) {
+            case TYPE_LIST:
+            case TYPE_SECOND_LIST:
+                itemCards = getListCards(resources);
+                break;
+            case TYPE_GRID:
+            case TYPE_SECOND_GRID:
+                itemCards = getGridCards(resources);
+                break;
+            default:
+                itemCards = null;
+        }
+
+        return itemCards;
+    }
+
+    public static DemoConfiguration getDemoConfiguration(int configurationType, Context context) {
+        DemoConfiguration demoConfiguration;
+
+        switch (configurationType) {
+            case TYPE_LIST:
+                demoConfiguration = new DemoConfiguration();
+                demoConfiguration.setStyleResource(R.style.AppTheme);
+                demoConfiguration.setLayoutResource(R.layout.activity_list);
+                demoConfiguration.setLayoutManager(new LinearLayoutManager(context));
+                demoConfiguration.setTitleResource(R.string.ab_list_title);
+                break;
+            case TYPE_GRID:
+                demoConfiguration = new DemoConfiguration();
+                demoConfiguration.setStyleResource(R.style.AppThemeGrid);
+                demoConfiguration.setLayoutResource(R.layout.activity_grid);
+                demoConfiguration.setLayoutManager(new GridLayoutManager(context, 2));
+                demoConfiguration.setTitleResource(R.string.ab_grid_title);
+                break;
+            case TYPE_SECOND_LIST:
+                demoConfiguration = new DemoConfiguration();
+                demoConfiguration.setStyleResource(R.style.AppTheme);
+                demoConfiguration.setLayoutResource(R.layout.activity_second_list);
+                demoConfiguration.setLayoutManager(new LinearLayoutManager(context));
+                demoConfiguration.setTitleResource(R.string.ab_list_title);
+                demoConfiguration.setItemDecoration(new CardPaddingItemDecoration(context));
+                break;
+            case TYPE_SECOND_GRID:
+                demoConfiguration = new DemoConfiguration();
+                demoConfiguration.setStyleResource(R.style.AppThemeGrid);
+                demoConfiguration.setLayoutResource(R.layout.activity_second_grid);
+                demoConfiguration.setLayoutManager(new GridLayoutManager(context, 2));
+                demoConfiguration.setTitleResource(R.string.ab_grid_title);
+                break;
+            default:
+                demoConfiguration = null;
+        }
+
+        return demoConfiguration;
     }
 }
