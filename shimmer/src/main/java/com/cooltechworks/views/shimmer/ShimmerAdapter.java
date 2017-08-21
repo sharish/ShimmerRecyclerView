@@ -17,11 +17,10 @@
 
 package com.cooltechworks.views.shimmer;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
-import com.cooltechworks.views.shimmer.ShimmerViewHolder;
 
 /**
  * Created by sharish on 22/11/16.
@@ -31,7 +30,9 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
     private int mItemCount = 10;
     private int mLayoutReference = R.layout.layout_sample_view;
-
+    private int mShimmerAngle;
+    private int mShimmerColor;
+    private Drawable mShimmerItemBackground;
 
     public void setMinItemCount(int itemCount) {
         mItemCount = itemCount;
@@ -39,9 +40,14 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
     @Override
     public ShimmerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new ShimmerViewHolder(inflater, parent, mLayoutReference);
+
+        ShimmerViewHolder shimmerViewHolder = new ShimmerViewHolder(inflater, parent, mLayoutReference);
+        shimmerViewHolder.setShimmerColor(mShimmerColor);
+        shimmerViewHolder.setShimmerAngle(mShimmerAngle);
+        shimmerViewHolder.setShimmerViewHolderBackground(mShimmerItemBackground);
+
+        return shimmerViewHolder;
     }
 
     @Override
@@ -52,6 +58,18 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
     @Override
     public int getItemCount() {
         return mItemCount;
+    }
+
+    public void setShimmerAngle(int shimmerAngle) {
+        this.mShimmerAngle = shimmerAngle;
+    }
+
+    public void setShimmerColor(int shimmerColor) {
+        this.mShimmerColor = shimmerColor;
+    }
+
+    public void setShimmerItemBackground(Drawable shimmerItemBackground) {
+        this.mShimmerItemBackground = shimmerItemBackground;
     }
 
     public void setLayoutReference(int layoutReference) {
