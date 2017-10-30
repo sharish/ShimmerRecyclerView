@@ -69,6 +69,7 @@ public class ShimmerRecyclerView extends RecyclerView {
 
         int mShimmerAngle;
         int mShimmerColor;
+        int mShimmerDuration;
         Drawable mShimmerItemBackground;
 
         try {
@@ -78,6 +79,10 @@ public class ShimmerRecyclerView extends RecyclerView {
 
             if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count)) {
                 setDemoChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count, 1));
+            }
+
+            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_duration)) {
+                setDemoShimmerDuration(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 0));
             }
 
             if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type)) {
@@ -104,6 +109,7 @@ public class ShimmerRecyclerView extends RecyclerView {
             mShimmerAngle = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_angle, 0);
             mShimmerColor = a.getColor(R.styleable.ShimmerRecyclerView_shimmer_demo_shimmer_color, getColor(R.color.default_shimmer_color));
             mShimmerItemBackground = a.getDrawable(R.styleable.ShimmerRecyclerView_shimmer_demo_view_holder_item_background);
+            mShimmerDuration = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 0);
         } finally {
             a.recycle();
         }
@@ -111,6 +117,7 @@ public class ShimmerRecyclerView extends RecyclerView {
         mShimmerAdapter.setShimmerAngle(mShimmerAngle);
         mShimmerAdapter.setShimmerColor(mShimmerColor);
         mShimmerAdapter.setShimmerItemBackground(mShimmerItemBackground);
+        mShimmerAdapter.setShimmerDuration(mShimmerDuration);
 
         showShimmerAdapter();
     }
@@ -141,6 +148,15 @@ public class ShimmerRecyclerView extends RecyclerView {
      */
     public void setDemoChildCount(int count) {
         mShimmerAdapter.setMinItemCount(count);
+    }
+
+    /**
+     * Specifies the animation duration of shimmer layout.
+     *
+     * @param duration - count specifying the duration of shimmer in millisecond.
+     */
+    public void setDemoShimmerDuration(int duration) {
+        mShimmerAdapter.setShimmerDuration(duration);
     }
 
     /**

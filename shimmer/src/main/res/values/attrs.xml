@@ -29,5 +29,6 @@ limitations under the License.
         <attr name="shimmer_demo_shimmer_color" format="color|reference"/>
         <attr name="shimmer_demo_angle" format="integer|reference"/>
         <attr name="shimmer_demo_view_holder_item_background" format="color|reference"/>
+        <attr name="shimmer_demo_duration" format="integer" />
     </declare-styleable>
 </resources>
