@@ -34,6 +34,11 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
     private int mShimmerColor;
     private int mShimmerDuration;
     private Drawable mShimmerItemBackground;
+    private boolean isShimmerNeedsAnimation = true;
+
+    public void setIsShimmerNeedsAnimation(boolean shimmerNeedsAnimation) {
+        this.isShimmerNeedsAnimation = shimmerNeedsAnimation;
+    }
 
     public void setMinItemCount(int itemCount) {
         mItemCount = itemCount;
@@ -53,7 +58,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
     @Override
     public void onBindViewHolder(ShimmerViewHolder holder, int position) {
-        holder.bind();
+        holder.bind(isShimmerNeedsAnimation);
     }
 
     @Override

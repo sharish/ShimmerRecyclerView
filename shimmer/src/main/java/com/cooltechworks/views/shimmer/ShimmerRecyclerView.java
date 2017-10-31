@@ -268,4 +268,16 @@ public class ShimmerRecyclerView extends RecyclerView {
             return getResources().getColor(id);
         }
     }
+    public void pauseShimmerAnimation(){
+        setShimmerAnimation(true);
+    }
+
+    public void resumeShimmerAnimation(){
+        setShimmerAnimation(false);
+    }
+
+    private void setShimmerAnimation(boolean isAnimation) {
+        mShimmerAdapter.setIsShimmerNeedsAnimation(isAnimation);
+        mShimmerAdapter.notifyDataSetChanged();
+    }
 }
