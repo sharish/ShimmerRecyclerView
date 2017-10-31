@@ -56,7 +56,6 @@ public class ShimmerViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setShimmerAnimationDuration(int duration) {
-        if(duration>0)
         mShimmerLayout.setShimmerAnimationDuration(duration);
     }
 
