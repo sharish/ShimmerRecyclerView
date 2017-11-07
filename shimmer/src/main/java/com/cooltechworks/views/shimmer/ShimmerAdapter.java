@@ -32,6 +32,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
     private int mLayoutReference = R.layout.layout_sample_view;
     private int mShimmerAngle;
     private int mShimmerColor;
+    private int mShimmerDuration;
     private Drawable mShimmerItemBackground;
 
     public void setMinItemCount(int itemCount) {
@@ -46,7 +47,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
         shimmerViewHolder.setShimmerColor(mShimmerColor);
         shimmerViewHolder.setShimmerAngle(mShimmerAngle);
         shimmerViewHolder.setShimmerViewHolderBackground(mShimmerItemBackground);
-
+        shimmerViewHolder.setShimmerAnimationDuration(mShimmerDuration);
         return shimmerViewHolder;
     }
 
@@ -70,6 +71,10 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
     public void setShimmerItemBackground(Drawable shimmerItemBackground) {
         this.mShimmerItemBackground = shimmerItemBackground;
+    }
+
+    public void setShimmerDuration(int mShimmerDuration) {
+        this.mShimmerDuration = mShimmerDuration;
     }
 
     public void setLayoutReference(int layoutReference) {
