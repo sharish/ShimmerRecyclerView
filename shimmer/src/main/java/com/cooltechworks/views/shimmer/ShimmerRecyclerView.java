@@ -81,10 +81,6 @@ public class ShimmerRecyclerView extends RecyclerView {
                 setDemoChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count, 1));
             }
 
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_duration)) {
-                setDemoShimmerDuration(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 0));
-            }
-
             if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type)) {
                 int value = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type, 0);
                 switch (value) {
@@ -109,7 +105,7 @@ public class ShimmerRecyclerView extends RecyclerView {
             mShimmerAngle = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_angle, 0);
             mShimmerColor = a.getColor(R.styleable.ShimmerRecyclerView_shimmer_demo_shimmer_color, getColor(R.color.default_shimmer_color));
             mShimmerItemBackground = a.getDrawable(R.styleable.ShimmerRecyclerView_shimmer_demo_view_holder_item_background);
-            mShimmerDuration = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 0);
+            mShimmerDuration = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 1500);
         } finally {
             a.recycle();
         }
