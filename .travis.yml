@@ -1,0 +1,13 @@
+language: android
+
+sudo: false
+
+android:
+  components:
+    # Note that the tools section appears twice on purpose as it’s required to get the newest Android SDK tools.
+    - tools
+    - platform-tools
+    - tools
+    - build-tools-25.0.2
+    - android-25
+    - extra-android-m2repository
