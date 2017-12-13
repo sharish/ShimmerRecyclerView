@@ -25,6 +25,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.View;
 
 /**
  * Created by sharish on 22/11/16.
@@ -32,9 +33,19 @@ import android.util.AttributeSet;
 
 public class ShimmerRecyclerView extends RecyclerView {
 
+    private AdapterDataObserver mDataObserver = new AdapterDataObserver() {
+        @Override
+        public void onChanged() {
+            super.onChanged();
+            updateEmptyView();
+        }
+    };
+
     public enum LayoutMangerType {
         LINEAR_VERTICAL, LINEAR_HORIZONTAL, GRID
     }
+
+    private View mEmptyView;
 
     private ShimmerAdapter mShimmerAdapter;
     private LayoutManager mShimmerLayoutManager;
@@ -116,6 +127,23 @@ public class ShimmerRecyclerView extends RecyclerView {
         mShimmerAdapter.setShimmerDuration(mShimmerDuration);
 
         showShimmerAdapter();
+    }
+
+    /**
+     * Designate a view as the empty view. When the backing adapter has no
+     * data this view will be made visible and the recycler view hidden.
+     *
+     */
+    public void setEmptyView(View emptyView) {
+        mEmptyView = emptyView;
+    }
+
+    private void updateEmptyView() {
+        if (mEmptyView != null && getAdapter() != null) {
+            boolean showEmptyView = getAdapter().getItemCount() == 0;
+            mEmptyView.setVisibility(showEmptyView ? VISIBLE : GONE);
+            setVisibility(showEmptyView ? GONE : VISIBLE);
+        }
     }
 
     /**
@@ -229,8 +257,16 @@ public class ShimmerRecyclerView extends RecyclerView {
             mActualAdapter = adapter;
         }
 
+        if (getAdapter() != null) {
+            getAdapter().unregisterAdapterDataObserver(mDataObserver);
+        }
+        if (adapter != null) {
+            adapter.registerAdapterDataObserver(mDataObserver);
+        }
+
         super.setAdapter(adapter);
 
+        updateEmptyView();
     }
 
     /**

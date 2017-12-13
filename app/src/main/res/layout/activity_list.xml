@@ -26,6 +26,16 @@ limitations under the License.
     android:layout_height="match_parent"
     >
 
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="@string/no_data_text"
+        android:visibility="gone"/>
+
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/shimmer_recycler_view"
         android:layout_width="match_parent"

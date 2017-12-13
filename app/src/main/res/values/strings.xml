@@ -20,6 +20,7 @@ limitations under the License.
     <string name="app_name">ShimmingRecyclerView</string>
     <string name="list_demo">List Demo</string>
     <string name="grid_demo">Grid Demo</string>
+    <string name="empty_demo">No Data Demo</string>
 
     <string name="second_list_demo">Second List Demo</string>
     <string name="second_grid_demo">Second Grid Demo</string>

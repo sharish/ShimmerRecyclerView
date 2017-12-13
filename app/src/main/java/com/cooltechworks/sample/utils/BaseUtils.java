@@ -34,6 +34,7 @@ public class BaseUtils {
     public static final int TYPE_GRID = 1;
     public static final int TYPE_SECOND_LIST = 2;
     public static final int TYPE_SECOND_GRID = 3;
+    public static final int TYPE_EMPTY = 4;
 
     private static ItemCard[] getListCards(Resources resources) {
 
@@ -145,6 +146,7 @@ public class BaseUtils {
 
         switch (configurationType) {
             case TYPE_LIST:
+            case TYPE_EMPTY:
                 demoConfiguration = new DemoConfiguration();
                 demoConfiguration.setStyleResource(R.style.AppTheme);
                 demoConfiguration.setLayoutResource(R.layout.activity_list);

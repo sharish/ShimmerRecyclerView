@@ -19,6 +19,7 @@ package com.cooltechworks.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.cooltechworks.sample.adapters.CardAdapter;
 import com.cooltechworks.sample.utils.BaseUtils;
@@ -47,6 +48,7 @@ public class DemoActivity extends AppCompatActivity {
         setTitle(demoConfiguration.getTitleResource());
 
         shimmerRecycler = (ShimmerRecyclerView) findViewById(R.id.shimmer_recycler_view);
+        TextView mEmptyTextView = (TextView) findViewById(R.id.emptyView);
 
         if (demoConfiguration.getItemDecoration() != null) {
             shimmerRecycler.addItemDecoration(demoConfiguration.getItemDecoration());
@@ -57,6 +59,7 @@ public class DemoActivity extends AppCompatActivity {
 
         shimmerRecycler.setLayoutManager(layoutManager);
         shimmerRecycler.setAdapter(mAdapter);
+        shimmerRecycler.setEmptyView(mEmptyTextView);
         shimmerRecycler.showShimmerAdapter();
 
         shimmerRecycler.postDelayed(new Runnable() {

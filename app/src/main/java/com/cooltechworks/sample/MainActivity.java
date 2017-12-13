@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         createClickListener(secondListDemoButton, BaseUtils.TYPE_SECOND_LIST);
         createClickListener(secondGridDemoButton, BaseUtils.TYPE_SECOND_GRID);
+
+        final Button emptyDemoButton = (Button) findViewById(R.id.empty_demo_button);
+        createClickListener(emptyDemoButton, BaseUtils.TYPE_EMPTY);
+
     }
 
     private void createClickListener(Button button, final int demoType) {
