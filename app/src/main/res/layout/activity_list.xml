@@ -16,20 +16,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 -->
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.cooltechworks.views.shimmer.ShimmerRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    android:id="@+id/shimmer_recycler_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
-        android:id="@+id/shimmer_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        app:shimmer_demo_layout="@layout/layout_demo"
-        app:shimmer_demo_shimmer_color="#73ffffff" />
-
-</RelativeLayout>
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    app:shimmer_demo_layout="@layout/layout_demo"
+    app:shimmer_demo_shimmer_color="#73ffffff" />
