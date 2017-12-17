@@ -16,8 +16,8 @@ limitations under the License.
 
 -->
 <io.supercharge.shimmerlayout.ShimmerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                            xmlns:app="http://schemas.android.com/apk/res-auto"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            app:shimmer_angle="0"
-                                            app:shimmer_animation_duration="1400"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:shimmer_angle="0"
+    app:shimmer_animation_duration="1400" />

@@ -17,8 +17,7 @@ limitations under the License.
 
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -29,7 +28,7 @@ limitations under the License.
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/list_demo_button"
@@ -37,7 +36,7 @@ limitations under the License.
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
-        android:text="@string/list_demo"/>
+        android:text="@string/list_demo" />
 
     <Button
         android:id="@+id/grid_demo_button"
@@ -45,7 +44,7 @@ limitations under the License.
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
-        android:text="@string/grid_demo"/>
+        android:text="@string/grid_demo" />
 
     <Button
         android:id="@+id/list_second_demo_button"
@@ -54,7 +53,7 @@ limitations under the License.
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:minWidth="200dp"
-        android:text="@string/second_list_demo"/>
+        android:text="@string/second_list_demo" />
 
     <Button
         android:id="@+id/grid_second_demo_button"
@@ -62,11 +61,11 @@ limitations under the License.
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
-        android:text="@string/second_grid_demo"/>
+        android:text="@string/second_grid_demo" />
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 </LinearLayout>

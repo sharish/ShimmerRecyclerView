@@ -36,7 +36,6 @@ public class BaseUtils {
     public static final int TYPE_SECOND_GRID = 3;
 
     private static ItemCard[] getListCards(Resources resources) {
-
         String title = resources.getString(R.string.ndtv_titletext);
         String image = resources.getString(R.string.ndtv_image_url);
         String desc = resources.getString(R.string.ndtv_subtext);
@@ -50,7 +49,6 @@ public class BaseUtils {
         summary = resources.getString(R.string.op_summarytext);
 
         ItemCard opCard = new ItemCard(title, desc, image, summary);
-
 
         title = resources.getString(R.string.got_titletext);
         image = resources.getString(R.string.got_image_url);
@@ -67,18 +65,15 @@ public class BaseUtils {
         ItemCard jetCard = new ItemCard(title, desc, image, summary);
 
         return new ItemCard[]{ndtvCard, opCard, gotCard, jetCard};
-
     }
 
     private static ItemCard[] getGridCards(Resources resources) {
-
         String title = resources.getString(R.string.on7_titletext);
         String image = resources.getString(R.string.on7_image_url);
         String desc = resources.getString(R.string.on7_subtext);
         String summary = resources.getString(R.string.on7_summarytext);
 
         ItemCard on7 = new ItemCard(title, desc, image, summary);
-
 
         title = resources.getString(R.string.note5_titletext);
         image = resources.getString(R.string.note5_image_url);
@@ -101,14 +96,12 @@ public class BaseUtils {
 
         ItemCard iphone6 = new ItemCard(title, desc, image, summary);
 
-
         title = resources.getString(R.string.moto_titletext);
         image = resources.getString(R.string.moto_image_url);
         desc = resources.getString(R.string.moto_subtext);
         summary = resources.getString(R.string.moto_summarytext);
 
         ItemCard moto = new ItemCard(title, desc, image, summary);
-
 
         title = resources.getString(R.string.s7_titletext);
         image = resources.getString(R.string.s7_image_url);
@@ -118,7 +111,6 @@ public class BaseUtils {
         ItemCard s7 = new ItemCard(title, desc, image, summary);
 
         return new ItemCard[]{on7, note5, pixel, iphone6, s7, moto};
-
     }
 
     public static ItemCard[] getCards(Resources resources, int type) {

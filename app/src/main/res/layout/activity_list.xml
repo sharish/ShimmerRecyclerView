@@ -17,14 +17,11 @@ limitations under the License.
 
 -->
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/shimmer_recycler_view"
@@ -34,8 +31,6 @@ limitations under the License.
         android:paddingTop="10dp"
         app:shimmer_demo_child_count="10"
         app:shimmer_demo_layout="@layout/layout_demo"
-        app:shimmer_demo_shimmer_color="#73ffffff"
-        />
-
+        app:shimmer_demo_shimmer_color="#73ffffff" />
 
 </RelativeLayout>

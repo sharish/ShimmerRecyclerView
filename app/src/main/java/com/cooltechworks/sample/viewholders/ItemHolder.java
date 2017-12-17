@@ -43,7 +43,6 @@ public class ItemHolder extends RecyclerView.ViewHolder {
     private TextView mSummaryView;
 
     public static ItemHolder newInstance(ViewGroup container, int type) {
-
         View root = LayoutInflater.from(container.getContext()).inflate(getLayoutResourceId(type), container, false);
         return new ItemHolder(root);
     }
@@ -54,11 +53,9 @@ public class ItemHolder extends RecyclerView.ViewHolder {
         mDescView = (TextView) itemView.findViewById(R.id.card_subtitle);
         mSummaryView = (TextView) itemView.findViewById(R.id.card_summary);
         mThumbnailView = (ImageView) itemView.findViewById(R.id.card_image);
-
     }
 
     public void bind(ItemCard card) {
-
         mTitleView.setText(card.getTitle());
         mDescView.setText(card.getDescription());
         mSummaryView.setText(card.getSummaryText());

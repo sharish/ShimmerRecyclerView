@@ -38,7 +38,6 @@ public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
-
         holder.bind(mCards[position]);
     }
 
@@ -48,7 +47,6 @@ public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
     }
 
     public void setCards(ItemCard[] cards) {
-
         if (cards == null) {
             mCards = new ItemCard[0];
         }

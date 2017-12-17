@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -25,7 +24,7 @@
                 android:layout_height="6dp"
                 android:layout_marginBottom="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
             <View
                 android:layout_width="match_parent"
@@ -33,7 +32,7 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
             <View
                 android:layout_width="match_parent"
@@ -41,7 +40,7 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
             <View
                 android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
             <View
                 android:layout_width="match_parent"
@@ -57,7 +56,7 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
             <View
                 android:layout_width="match_parent"
@@ -65,14 +64,14 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="6dp"
                 android:layout_marginTop="3dp"
                 android:alpha="0.1"
-                android:background="@android:color/background_dark"/>
+                android:background="@android:color/background_dark" />
 
         </LinearLayout>
 
@@ -82,7 +81,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:alpha="0.1"
-            android:background="@android:color/background_dark"/>
+            android:background="@android:color/background_dark" />
 
     </LinearLayout>
 
@@ -100,7 +99,7 @@
             android:layout_marginBottom="3dp"
             android:layout_marginTop="6dp"
             android:alpha="0.1"
-            android:background="@android:color/background_dark"/>
+            android:background="@android:color/background_dark" />
 
         <View
             android:layout_width="match_parent"
@@ -108,7 +107,7 @@
             android:layout_marginBottom="3dp"
             android:layout_marginTop="3dp"
             android:alpha="0.1"
-            android:background="@android:color/background_dark"/>
+            android:background="@android:color/background_dark" />
 
         <View
             android:layout_width="match_parent"
@@ -116,8 +115,7 @@
             android:layout_marginBottom="3dp"
             android:layout_marginTop="3dp"
             android:alpha="0.1"
-            android:background="@android:color/background_dark"/>
+            android:background="@android:color/background_dark" />
 
     </LinearLayout>
-
 </LinearLayout>

@@ -42,7 +42,6 @@ public class ShimmerRecyclerView extends RecyclerView {
     private LayoutManager mActualLayoutManager;
     private Adapter mActualAdapter;
 
-
     private int mLayoutReference = R.layout.layout_sample_view;
     private boolean mCanScroll;
     private LayoutMangerType mLayoutMangerType = LayoutMangerType.LINEAR_VERTICAL;
@@ -134,7 +133,6 @@ public class ShimmerRecyclerView extends RecyclerView {
      */
     public void setDemoLayoutManager(LayoutMangerType type) {
         mLayoutMangerType = type;
-
     }
 
     /**
@@ -167,11 +165,9 @@ public class ShimmerRecyclerView extends RecyclerView {
 
         setLayoutManager(mShimmerLayoutManager);
         setAdapter(mShimmerAdapter);
-
     }
 
     private void initShimmerManager() {
-
         switch (mLayoutMangerType) {
             case LINEAR_VERTICAL:
                 mShimmerLayoutManager = new LinearLayoutManager(getContext()) {
@@ -194,8 +190,6 @@ public class ShimmerRecyclerView extends RecyclerView {
                     }
                 };
                 break;
-
-
         }
     }
 
@@ -208,9 +202,7 @@ public class ShimmerRecyclerView extends RecyclerView {
         setAdapter(mActualAdapter);
     }
 
-
     public void setLayoutManager(LayoutManager manager) {
-
         if (manager == null) {
             mActualLayoutManager = null;
         } else if (manager != mShimmerLayoutManager) {
@@ -220,9 +212,7 @@ public class ShimmerRecyclerView extends RecyclerView {
         super.setLayoutManager(manager);
     }
 
-
     public void setAdapter(Adapter adapter) {
-
         if (adapter == null) {
             mActualAdapter = null;
         } else if (adapter != mShimmerAdapter) {
@@ -230,7 +220,6 @@ public class ShimmerRecyclerView extends RecyclerView {
         }
 
         super.setAdapter(adapter);
-
     }
 
     /**
@@ -241,7 +230,6 @@ public class ShimmerRecyclerView extends RecyclerView {
     public Adapter getActualAdapter() {
         return mActualAdapter;
     }
-
 
     public int getLayoutReference() {
         return mLayoutReference;

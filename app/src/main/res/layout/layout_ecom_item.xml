@@ -18,21 +18,18 @@ limitations under the License.
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@drawable/bg_sharp_card"
-              android:orientation="vertical"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_sharp_card"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/card_image"
         android:layout_width="78dp"
         android:layout_height="78dp"
         android:layout_gravity="center"
-        android:layout_margin="16dp"
-        />
-
+        android:layout_margin="16dp" />
 
     <TextView
         android:id="@+id/card_title"
@@ -45,8 +42,7 @@ limitations under the License.
         android:paddingRight="16dp"
         android:textColor="@color/textPrimaryGrid"
         android:textSize="14sp"
-        tools:text="@string/on7_titletext"
-        />
+        tools:text="@string/on7_titletext" />
 
     <TextView
         android:id="@+id/card_subtitle"
@@ -59,8 +55,7 @@ limitations under the License.
         android:paddingRight="16dp"
         android:textColor="@color/textSecondaryGrid"
         android:textSize="14sp"
-        tools:text="@string/on7_subtext"
-        />
+        tools:text="@string/on7_subtext" />
 
     <TextView
         android:id="@+id/card_summary"
@@ -74,7 +69,6 @@ limitations under the License.
         android:paddingRight="16dp"
         android:textColor="@color/textTertiaryGrid"
         android:textSize="14sp"
-        tools:text="@string/on7_summarytext"/>
-
+        tools:text="@string/on7_summarytext" />
 
 </LinearLayout>

@@ -48,6 +48,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
         shimmerViewHolder.setShimmerAngle(mShimmerAngle);
         shimmerViewHolder.setShimmerViewHolderBackground(mShimmerItemBackground);
         shimmerViewHolder.setShimmerAnimationDuration(mShimmerDuration);
+
         return shimmerViewHolder;
     }
 

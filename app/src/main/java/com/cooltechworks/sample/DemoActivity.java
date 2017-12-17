@@ -68,12 +68,10 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     private void loadCards() {
-
         int type = getType();
 
         mAdapter.setCards(BaseUtils.getCards(getResources(), type));
         shimmerRecycler.hideShimmerAdapter();
-
     }
 
     private int getType() {
