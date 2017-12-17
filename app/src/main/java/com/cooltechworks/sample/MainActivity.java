@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button firstListDemoButton = (Button) findViewById(R.id.list_demo_button);
-        final Button firstGridDemoButton = (Button) findViewById(R.id.grid_demo_button);
+        final Button firstListDemoButton = findViewById(R.id.list_demo_button);
+        final Button firstGridDemoButton = findViewById(R.id.grid_demo_button);
 
         createClickListener(firstListDemoButton, BaseUtils.TYPE_LIST);
         createClickListener(firstGridDemoButton, BaseUtils.TYPE_GRID);
 
-        final Button secondListDemoButton = (Button) findViewById(R.id.list_second_demo_button);
-        final Button secondGridDemoButton = (Button) findViewById(R.id.grid_second_demo_button);
+        final Button secondListDemoButton = findViewById(R.id.list_second_demo_button);
+        final Button secondGridDemoButton = findViewById(R.id.grid_second_demo_button);
 
         createClickListener(secondListDemoButton, BaseUtils.TYPE_SECOND_LIST);
         createClickListener(secondGridDemoButton, BaseUtils.TYPE_SECOND_GRID);

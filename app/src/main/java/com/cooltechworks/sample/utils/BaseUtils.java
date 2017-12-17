@@ -17,6 +17,7 @@ package com.cooltechworks.sample.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.StringRes;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 
@@ -24,9 +25,8 @@ import com.cooltechworks.sample.R;
 import com.cooltechworks.sample.models.ItemCard;
 import com.cooltechworks.sample.utils.view.CardPaddingItemDecoration;
 
-/**
- * Created by sharish on 27/12/16.
- */
+import java.util.Arrays;
+import java.util.List;
 
 public class BaseUtils {
 
@@ -35,94 +35,46 @@ public class BaseUtils {
     public static final int TYPE_SECOND_LIST = 2;
     public static final int TYPE_SECOND_GRID = 3;
 
-    private static ItemCard[] getListCards(Resources resources) {
+    private static List<ItemCard> getListCards(Resources resources) {
+        ItemCard ndtvCard = createItemCard(resources, R.string.ndtv_titletext, R.string.ndtv_image_url,
+                R.string.ndtv_subtext, R.string.ndtv_summarytext);
 
-        String title = resources.getString(R.string.ndtv_titletext);
-        String image = resources.getString(R.string.ndtv_image_url);
-        String desc = resources.getString(R.string.ndtv_subtext);
-        String summary = resources.getString(R.string.ndtv_summarytext);
+        ItemCard opCard = createItemCard(resources, R.string.op_titletext, R.string.op_image_url,
+                R.string.op_subtext, R.string.op_summarytext);
 
-        ItemCard ndtvCard = new ItemCard(title, desc, image, summary);
+        ItemCard gotCard = createItemCard(resources, R.string.got_titletext, R.string.got_image_url,
+                R.string.got_subtext, R.string.got_summarytext);
 
-        title = resources.getString(R.string.op_titletext);
-        image = resources.getString(R.string.op_image_url);
-        desc = resources.getString(R.string.op_subtext);
-        summary = resources.getString(R.string.op_summarytext);
+        ItemCard jetCard = createItemCard(resources, R.string.jet_titletext, R.string.jet_image_url,
+                R.string.jet_subtext, R.string.jet_summarytext);
 
-        ItemCard opCard = new ItemCard(title, desc, image, summary);
-
-
-        title = resources.getString(R.string.got_titletext);
-        image = resources.getString(R.string.got_image_url);
-        desc = resources.getString(R.string.got_subtext);
-        summary = resources.getString(R.string.got_summarytext);
-
-        ItemCard gotCard = new ItemCard(title, desc, image, summary);
-
-        title = resources.getString(R.string.jet_titletext);
-        image = resources.getString(R.string.jet_image_url);
-        desc = resources.getString(R.string.jet_subtext);
-        summary = resources.getString(R.string.jet_summarytext);
-
-        ItemCard jetCard = new ItemCard(title, desc, image, summary);
-
-        return new ItemCard[]{ndtvCard, opCard, gotCard, jetCard};
-
+        return Arrays.asList(ndtvCard, opCard, gotCard, jetCard);
     }
 
-    private static ItemCard[] getGridCards(Resources resources) {
+    private static List<ItemCard> getGridCards(Resources resources) {
+        ItemCard on7 = createItemCard(resources, R.string.on7_titletext, R.string.on7_image_url,
+                R.string.on7_subtext, R.string.on7_summarytext);
 
-        String title = resources.getString(R.string.on7_titletext);
-        String image = resources.getString(R.string.on7_image_url);
-        String desc = resources.getString(R.string.on7_subtext);
-        String summary = resources.getString(R.string.on7_summarytext);
+        ItemCard note5 = createItemCard(resources, R.string.note5_titletext, R.string.note5_image_url,
+                R.string.note5_subtext, R.string.note5_summarytext);
 
-        ItemCard on7 = new ItemCard(title, desc, image, summary);
+        ItemCard pixel = createItemCard(resources, R.string.pix_titletext, R.string.pix_image_url,
+                R.string.pix_subtext, R.string.pix_summarytext);
 
+        ItemCard iphone6 = createItemCard(resources, R.string.i6_titletext, R.string.i6_image_url,
+                R.string.i6_subtext, R.string.i6_summarytext);
 
-        title = resources.getString(R.string.note5_titletext);
-        image = resources.getString(R.string.note5_image_url);
-        desc = resources.getString(R.string.note5_subtext);
-        summary = resources.getString(R.string.note5_summarytext);
+        ItemCard moto = createItemCard(resources, R.string.moto_titletext, R.string.moto_image_url,
+                R.string.moto_subtext, R.string.moto_summarytext);
 
-        ItemCard note5 = new ItemCard(title, desc, image, summary);
+        ItemCard s7 = createItemCard(resources, R.string.s7_titletext, R.string.s7_image_url,
+                R.string.s7_subtext, R.string.s7_summarytext);
 
-        title = resources.getString(R.string.pix_titletext);
-        image = resources.getString(R.string.pix_image_url);
-        desc = resources.getString(R.string.pix_subtext);
-        summary = resources.getString(R.string.pix_summarytext);
-
-        ItemCard pixel = new ItemCard(title, desc, image, summary);
-
-        title = resources.getString(R.string.i6_titletext);
-        image = resources.getString(R.string.i6_image_url);
-        desc = resources.getString(R.string.i6_subtext);
-        summary = resources.getString(R.string.i6_summarytext);
-
-        ItemCard iphone6 = new ItemCard(title, desc, image, summary);
-
-
-        title = resources.getString(R.string.moto_titletext);
-        image = resources.getString(R.string.moto_image_url);
-        desc = resources.getString(R.string.moto_subtext);
-        summary = resources.getString(R.string.moto_summarytext);
-
-        ItemCard moto = new ItemCard(title, desc, image, summary);
-
-
-        title = resources.getString(R.string.s7_titletext);
-        image = resources.getString(R.string.s7_image_url);
-        desc = resources.getString(R.string.s7_subtext);
-        summary = resources.getString(R.string.s7_summarytext);
-
-        ItemCard s7 = new ItemCard(title, desc, image, summary);
-
-        return new ItemCard[]{on7, note5, pixel, iphone6, s7, moto};
-
+        return Arrays.asList(on7, note5, pixel, iphone6, s7, moto);
     }
 
-    public static ItemCard[] getCards(Resources resources, int type) {
-        ItemCard[] itemCards;
+    public static List<ItemCard> getCards(Resources resources, int type) {
+        List<ItemCard> itemCards;
 
         switch (type) {
             case TYPE_LIST:
@@ -178,5 +130,17 @@ public class BaseUtils {
         }
 
         return demoConfiguration;
+    }
+
+    private static ItemCard createItemCard(Resources resources, @StringRes int title, @StringRes int imageUrl,
+                                           @StringRes int description, @StringRes int summary) {
+        ItemCard itemCard = new ItemCard();
+
+        itemCard.setTitle(resources.getString(title));
+        itemCard.setThumbnailUrl(resources.getString(imageUrl));
+        itemCard.setDescription(resources.getString(description));
+        itemCard.setSummaryText(resources.getString(summary));
+
+        return itemCard;
     }
 }

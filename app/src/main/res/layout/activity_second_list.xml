@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.cooltechworks.views.shimmer.ShimmerRecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.cooltechworks.views.shimmer.ShimmerRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/shimmer_recycler_view"
     android:layout_width="match_parent"
@@ -10,7 +9,6 @@
     android:paddingRight="16dp"
     android:paddingTop="10dp"
     app:shimmer_demo_angle="20"
-    app:shimmer_demo_child_count="10"
     app:shimmer_demo_layout="@layout/layout_second_demo"
     app:shimmer_demo_shimmer_color="@color/shimmer_color"
-    app:shimmer_demo_view_holder_item_background="@drawable/bg_card"/>
+    app:shimmer_demo_view_holder_item_background="@drawable/bg_card" />

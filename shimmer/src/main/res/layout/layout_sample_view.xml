@@ -17,17 +17,14 @@ limitations under the License.
 
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="100dp"
-              android:layout_marginBottom="8dp"
-              android:layout_marginLeft="16dp"
-              android:layout_marginRight="16dp"
-              android:layout_marginTop="8dp"
-              android:background="@android:color/white"
-              android:orientation="horizontal"
-
-
-    >
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
 
     <View
         android:layout_width="84dp"
@@ -38,10 +35,9 @@ limitations under the License.
         android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="@color/demo_light_transparent"
-        />
+        android:background="@color/demo_light_transparent" />
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
@@ -49,31 +45,25 @@ limitations under the License.
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        >
+        android:layout_marginTop="16dp">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/demo_light_transparent"
-            />
+            android:layout_gravity="top"
+            android:background="@color/demo_light_transparent" />
 
         <View
             android:layout_width="120dp"
             android:layout_height="10dp"
-            android:layout_centerVertical="true"
-            android:background="@color/demo_light_transparent"
-            />
+            android:layout_gravity="center_vertical"
+            android:background="@color/demo_light_transparent" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/demo_light_transparent"
-            />
+            android:layout_gravity="bottom"
+            android:background="@color/demo_light_transparent" />
 
-
-    </RelativeLayout>
-
+    </FrameLayout>
 </LinearLayout>

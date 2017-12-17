@@ -1,4 +1,3 @@
-
 <!--
 Copyright 2017 Harish Sridharan
 
@@ -18,9 +17,62 @@ limitations under the License.
 -->
 <resources>
     <string name="app_name">ShimmingRecyclerView</string>
+
     <string name="list_demo">List Demo</string>
     <string name="grid_demo">Grid Demo</string>
-
     <string name="second_list_demo">Second List Demo</string>
     <string name="second_grid_demo">Second Grid Demo</string>
+
+    <string name="ab_list_title">Stories to read</string>
+    <string name="ab_grid_title">Offers Zone</string>
+
+    <string name="got_titletext">Who Will Ride The Third Dragon In \'Game Of Thrones\' Season 7?</string>
+    <string name="got_image_url">http://cdn.idigitaltimes.com/sites/idigitaltimes.com/files/styles/image_embed/public/2016/04/29/game-thrones-daenerys-dragon-drogon.jpg</string>
+    <string name="got_subtext">Game of Thrones season 7 will kick off a new age of Game of Thrones, with the show becoming a true epic fantasy for the first time. Don’t worry, it will remain a high political drama too, but the war between ice and fire isn’t far off now, and Daenerys Targaryen seems destined to lead the fight</string>
+    <string name="got_summarytext">You\'ve shown interest in Game of Thrones series</string>
+
+    <string name="ndtv_titletext">Agni 5, India\'s Longest Range Nuclear Capable Missile, Successfully Test Fired: 10 Points</string>
+    <string name="ndtv_subtext">Agni-5, India\'s longest range nuclear capable missile, was successfully test fired from the Kalam Island off Odisha coast today by the Defence Research and Development Organisation or DRDO. The intercontinental surface-to-surface ballistic missile, the latest in India\'s \"Agni\" family of medium to intercontinental range missiles, with new technology for navigation and guidance, gives India the strategic depth it needs to contain its enemies, say scientists. Ready to be deployed, the Agni-5 will soon join India\'s military arsenal</string>
+    <string name="ndtv_image_url">http://i.ndtvimg.com/i/2016-12/agni-5_650x400_71482721510.jpg</string>
+    <string name="ndtv_summarytext">You\'ve shown interest in Nuclear Capable Missles</string>
+
+    <string name="op_titletext">OnePlus releases leather case for OnePlus 3 and 3T</string>
+    <string name="op_subtext">OnePlus has released a leather case for the OnePlus 3/3T. Even though there are several cases for the OnePlus 3/3T, this one will offer a premium look for the smartphone. It has textured calfskin leather blend along with a classic matte finish making it easy to clean and also offers a comfortable grip.</string>
+    <string name="op_image_url">http://images.fonearena.com/blog/wp-content/uploads/2016/12/OnePlus-3-and-3T-leather-case-1.jpg</string>
+    <string name="op_summarytext">You\'ve shown interest in One Plus</string>
+
+    <string name="jet_titletext">Jet Airways Extends Sale, Offers Tickets Starting Rs. 990</string>
+    <string name="jet_subtext">Jet Airways has extended its promotional scheme offering fares starting as low as Rs. 990 on select domestic flights under economy class travel. Under Jet Airways\' \"Best Fares Forever\" offer, tickets must be purchased till December 27, 2016, for travel on or after January 4, 2017. \"Tickets must be purchased a minimum of 15 days prior departure,\" the airline said on its website, adding that limited seats are available under the offer on a first come, first serve basis.</string>
+    <string name="jet_image_url">http://i.ndtvimg.com/i/2016-11/jet-airways_650x400_51480009251.jpg</string>
+    <string name="jet_summarytext">You\'ve shown interest in Jet Airways</string>
+
+    <string name="note5_titletext">Lenovo Vibe K5 Note</string>
+    <string name="note5_image_url">https://rukminim1.flixcart.com/image/832/832/mobile/g/4/7/lenovo-k5-note-pa330010in-original-imaekyazjhfqveze.jpeg</string>
+    <string name="note5_subtext">Exchange Offer</string>
+    <string name="note5_summarytext">From &#8377;11,999</string>
+
+    <string name="on7_titletext">Samsung On7</string>
+    <string name="on7_image_url">https://rukminim1.flixcart.com/image/832/832/mobile/c/n/y/samsung-galaxy-on7-sm-g600f-original-imaecqkgfgtmaw2y.jpeg</string>
+    <string name="on7_subtext">&#8377;1,200 Off</string>
+    <string name="on7_summarytext">Now &#8377;8990</string>
+
+    <string name="pix_titletext">Google Pixel | XL</string>
+    <string name="pix_image_url">https://rukminim1.flixcart.com/image/832/832/mobile/6/g/7/google-pixel-m4-original-imaemzzdh3azqsqb.jpeg</string>
+    <string name="pix_subtext">Exchange Offer</string>
+    <string name="pix_summarytext">From &#8377;57,000</string>
+
+    <string name="i6_titletext">Apple iPhone6</string>
+    <string name="i6_image_url">https://rukminim1.flixcart.com/image/832/832/mobile/f/2/j/apple-iphone-6-original-imaeymdqs5gm5xkz.jpeg</string>
+    <string name="i6_subtext">&#8377;3,000 Off</string>
+    <string name="i6_summarytext">Now &#8377;33990</string>
+
+    <string name="s7_titletext">Samsung Galaxy S7</string>
+    <string name="s7_image_url">https://rukminim1.flixcart.com/image/832/832/mobile/7/n/x/samsung-galaxy-s7-na-original-imaegmjszvhghyzc.jpeg</string>
+    <string name="s7_subtext">Just &#8377;43,000</string>
+    <string name="s7_summarytext">4 GB RAM, 32 GB ROM</string>
+
+    <string name="moto_titletext">Moto Turbo</string>
+    <string name="moto_image_url">https://rukminim1.flixcart.com/image/832/832/mobile/c/v/x/motorola-moto-turbo-xt1225-original-imae5fyxgh7qy6ag.jpeg</string>
+    <string name="moto_subtext">Exchange Offer</string>
+    <string name="moto_summarytext">Now &#8377;31990</string>
 </resources>

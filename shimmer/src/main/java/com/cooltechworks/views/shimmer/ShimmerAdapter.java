@@ -22,22 +22,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-/**
- * Created by sharish on 22/11/16.
- */
-
 public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
-    private int mItemCount = 10;
-    private int mLayoutReference = R.layout.layout_sample_view;
+    private int mItemCount;
+    private int mLayoutReference;
     private int mShimmerAngle;
     private int mShimmerColor;
     private int mShimmerDuration;
     private Drawable mShimmerItemBackground;
-
-    public void setMinItemCount(int itemCount) {
-        mItemCount = itemCount;
-    }
 
     @Override
     public ShimmerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,6 +40,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
         shimmerViewHolder.setShimmerAngle(mShimmerAngle);
         shimmerViewHolder.setShimmerViewHolderBackground(mShimmerItemBackground);
         shimmerViewHolder.setShimmerAnimationDuration(mShimmerDuration);
+
         return shimmerViewHolder;
     }
 
@@ -59,6 +52,10 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
     @Override
     public int getItemCount() {
         return mItemCount;
+    }
+
+    public void setMinItemCount(int itemCount) {
+        mItemCount = itemCount;
     }
 
     public void setShimmerAngle(int shimmerAngle) {

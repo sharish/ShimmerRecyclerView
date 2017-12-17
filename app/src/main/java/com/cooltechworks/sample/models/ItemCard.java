@@ -15,10 +15,6 @@
  */
 package com.cooltechworks.sample.models;
 
-/**
- * Created by sharish on 27/12/16.
- */
-
 public class ItemCard {
 
     private String mTitle;
@@ -26,27 +22,35 @@ public class ItemCard {
     private String mThumbnailUrl;
     private String mSummaryText;
 
-    public ItemCard(String mTitle, String mDescription, String mThumbnailUrl, String mSummaryText) {
-        this.mTitle = mTitle;
-        this.mDescription = mDescription;
-        this.mThumbnailUrl = mThumbnailUrl;
-        this.mSummaryText = mSummaryText;
-    }
-
     public String getTitle() {
         return mTitle;
+    }
+
+    public void setTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
 
     public String getDescription() {
         return mDescription;
     }
 
+    public void setDescription(String mDescription) {
+        this.mDescription = mDescription;
+    }
+
     public String getThumbnailUrl() {
         return mThumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String mThumbnailUrl) {
+        this.mThumbnailUrl = mThumbnailUrl;
     }
 
     public String getSummaryText() {
         return mSummaryText;
     }
 
+    public void setSummaryText(String mSummaryText) {
+        this.mSummaryText = mSummaryText;
+    }
 }

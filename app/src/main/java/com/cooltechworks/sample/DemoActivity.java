@@ -46,7 +46,7 @@ public class DemoActivity extends AppCompatActivity {
         layoutManager = demoConfiguration.getLayoutManager();
         setTitle(demoConfiguration.getTitleResource());
 
-        shimmerRecycler = (ShimmerRecyclerView) findViewById(R.id.shimmer_recycler_view);
+        shimmerRecycler = findViewById(R.id.shimmer_recycler_view);
 
         if (demoConfiguration.getItemDecoration() != null) {
             shimmerRecycler.addItemDecoration(demoConfiguration.getItemDecoration());
@@ -68,12 +68,10 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     private void loadCards() {
-
         int type = getType();
 
         mAdapter.setCards(BaseUtils.getCards(getResources(), type));
         shimmerRecycler.hideShimmerAdapter();
-
     }
 
     private int getType() {

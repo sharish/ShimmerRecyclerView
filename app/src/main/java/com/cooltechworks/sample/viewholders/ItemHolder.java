@@ -31,10 +31,6 @@ import static com.cooltechworks.sample.utils.BaseUtils.TYPE_LIST;
 import static com.cooltechworks.sample.utils.BaseUtils.TYPE_SECOND_GRID;
 import static com.cooltechworks.sample.utils.BaseUtils.TYPE_SECOND_LIST;
 
-/**
- * Created by sharish on 27/12/16.
- */
-
 public class ItemHolder extends RecyclerView.ViewHolder {
 
     private TextView mTitleView;
@@ -43,22 +39,22 @@ public class ItemHolder extends RecyclerView.ViewHolder {
     private TextView mSummaryView;
 
     public static ItemHolder newInstance(ViewGroup container, int type) {
+        View root = LayoutInflater.from(container.getContext()).inflate(getLayoutResourceId(type),
+                container, false);
 
-        View root = LayoutInflater.from(container.getContext()).inflate(getLayoutResourceId(type), container, false);
         return new ItemHolder(root);
     }
 
     private ItemHolder(View itemView) {
         super(itemView);
-        mTitleView = (TextView) itemView.findViewById(R.id.card_title);
-        mDescView = (TextView) itemView.findViewById(R.id.card_subtitle);
-        mSummaryView = (TextView) itemView.findViewById(R.id.card_summary);
-        mThumbnailView = (ImageView) itemView.findViewById(R.id.card_image);
 
+        mTitleView =  itemView.findViewById(R.id.card_title);
+        mDescView =  itemView.findViewById(R.id.card_subtitle);
+        mSummaryView =  itemView.findViewById(R.id.card_summary);
+        mThumbnailView = itemView.findViewById(R.id.card_image);
     }
 
     public void bind(ItemCard card) {
-
         mTitleView.setText(card.getTitle());
         mDescView.setText(card.getDescription());
         mSummaryView.setText(card.getSummaryText());

@@ -26,46 +26,41 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-/**
- * Created by sharish on 22/11/16.
- */
-
 public class ShimmerRecyclerView extends RecyclerView {
 
     public enum LayoutMangerType {
         LINEAR_VERTICAL, LINEAR_HORIZONTAL, GRID
     }
 
-    private ShimmerAdapter mShimmerAdapter;
-    private LayoutManager mShimmerLayoutManager;
-
-    private LayoutManager mActualLayoutManager;
     private Adapter mActualAdapter;
+    private ShimmerAdapter mShimmerAdapter;
 
+    private LayoutManager mShimmerLayoutManager;
+    private LayoutManager mActualLayoutManager;
+    private LayoutMangerType mLayoutMangerType;
 
-    private int mLayoutReference = R.layout.layout_sample_view;
     private boolean mCanScroll;
-    private LayoutMangerType mLayoutMangerType = LayoutMangerType.LINEAR_VERTICAL;
-    private int mGridCount = 2;
+    private int mLayoutReference;
+    private int mGridCount;
 
     public ShimmerRecyclerView(Context context) {
         super(context);
-        init(null);
+        init(context, null);
     }
 
     public ShimmerRecyclerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(attrs);
+        init(context, attrs);
     }
 
     public ShimmerRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs);
+        init(context, attrs);
     }
 
-    private void init(AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs) {
         mShimmerAdapter = new ShimmerAdapter();
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ShimmerRecyclerView, 0, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ShimmerRecyclerView, 0, 0);
 
         int mShimmerAngle;
         int mShimmerColor;
@@ -73,33 +68,23 @@ public class ShimmerRecyclerView extends RecyclerView {
         Drawable mShimmerItemBackground;
 
         try {
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout)) {
-                setDemoLayoutReference(a.getResourceId(R.styleable.ShimmerRecyclerView_shimmer_demo_layout, R.layout.layout_sample_view));
-            }
+            setDemoLayoutReference(a.getResourceId(R.styleable.ShimmerRecyclerView_shimmer_demo_layout, R.layout.layout_sample_view));
+            setDemoChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count, 10));
+            setGridChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_grid_child_count, 2));
 
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count)) {
-                setDemoChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_child_count, 1));
-            }
-
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type)) {
-                int value = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type, 0);
-                switch (value) {
-                    case 1:
-                        setDemoLayoutManager(LayoutMangerType.LINEAR_HORIZONTAL);
-                        break;
-                    case 2:
-                        setDemoLayoutManager(LayoutMangerType.GRID);
-                        break;
-                    case 0:
-                    default:
-                        setDemoLayoutManager(LayoutMangerType.LINEAR_VERTICAL);
-                        break;
-
-                }
-            }
-
-            if (a.hasValue(R.styleable.ShimmerRecyclerView_shimmer_demo_grid_child_count)) {
-                setGridChildCount(a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_grid_child_count, 2));
+            final int value = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_layout_manager_type, 0);
+            switch (value) {
+                case 0:
+                    setDemoLayoutManager(LayoutMangerType.LINEAR_VERTICAL);
+                    break;
+                case 1:
+                    setDemoLayoutManager(LayoutMangerType.LINEAR_HORIZONTAL);
+                    break;
+                case 2:
+                    setDemoLayoutManager(LayoutMangerType.GRID);
+                    break;
+                default:
+                    throw new IllegalArgumentException("This value for layout manager is not valid!");
             }
 
             mShimmerAngle = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_angle, 0);
@@ -134,7 +119,6 @@ public class ShimmerRecyclerView extends RecyclerView {
      */
     public void setDemoLayoutManager(LayoutMangerType type) {
         mLayoutMangerType = type;
-
     }
 
     /**
@@ -167,11 +151,61 @@ public class ShimmerRecyclerView extends RecyclerView {
 
         setLayoutManager(mShimmerLayoutManager);
         setAdapter(mShimmerAdapter);
+    }
 
+    /**
+     * Hides the shimmer adapter
+     */
+    public void hideShimmerAdapter() {
+        mCanScroll = true;
+        setLayoutManager(mActualLayoutManager);
+        setAdapter(mActualAdapter);
+    }
+
+    public void setLayoutManager(LayoutManager manager) {
+        if (manager == null) {
+            mActualLayoutManager = null;
+        } else if (manager != mShimmerLayoutManager) {
+            mActualLayoutManager = manager;
+        }
+
+        super.setLayoutManager(manager);
+    }
+
+    public void setAdapter(Adapter adapter) {
+        if (adapter == null) {
+            mActualAdapter = null;
+        } else if (adapter != mShimmerAdapter) {
+            mActualAdapter = adapter;
+        }
+
+        super.setAdapter(adapter);
+    }
+
+    /**
+     * Retrieves the actual adapter that contains the data set or null if no adapter is set.
+     *
+     * @return The actual adapter
+     */
+    public Adapter getActualAdapter() {
+        return mActualAdapter;
+    }
+
+    public int getLayoutReference() {
+        return mLayoutReference;
+    }
+
+    /**
+     * Sets the demo layout reference
+     *
+     * @param mLayoutReference layout resource id of the layout which should be shown as demo.
+     */
+    public void setDemoLayoutReference(int mLayoutReference) {
+        this.mLayoutReference = mLayoutReference;
+        mShimmerAdapter.setLayoutReference(getLayoutReference());
     }
 
     private void initShimmerManager() {
-
         switch (mLayoutMangerType) {
             case LINEAR_VERTICAL:
                 mShimmerLayoutManager = new LinearLayoutManager(getContext()) {
@@ -194,67 +228,7 @@ public class ShimmerRecyclerView extends RecyclerView {
                     }
                 };
                 break;
-
-
         }
-    }
-
-    /**
-     * Hides the shimmer adapter
-     */
-    public void hideShimmerAdapter() {
-        mCanScroll = true;
-        setLayoutManager(mActualLayoutManager);
-        setAdapter(mActualAdapter);
-    }
-
-
-    public void setLayoutManager(LayoutManager manager) {
-
-        if (manager == null) {
-            mActualLayoutManager = null;
-        } else if (manager != mShimmerLayoutManager) {
-            mActualLayoutManager = manager;
-        }
-
-        super.setLayoutManager(manager);
-    }
-
-
-    public void setAdapter(Adapter adapter) {
-
-        if (adapter == null) {
-            mActualAdapter = null;
-        } else if (adapter != mShimmerAdapter) {
-            mActualAdapter = adapter;
-        }
-
-        super.setAdapter(adapter);
-
-    }
-
-    /**
-     * Retrieves the actual adapter that contains the data set or null if no adapter is set.
-     *
-     * @return The actual adapter
-     */
-    public Adapter getActualAdapter() {
-        return mActualAdapter;
-    }
-
-
-    public int getLayoutReference() {
-        return mLayoutReference;
-    }
-
-    /**
-     * Sets the demo layout reference
-     *
-     * @param mLayoutReference layout resource id of the layout which should be shown as demo.
-     */
-    public void setDemoLayoutReference(int mLayoutReference) {
-        this.mLayoutReference = mLayoutReference;
-        mShimmerAdapter.setLayoutReference(getLayoutReference());
     }
 
     private int getColor(int id) {

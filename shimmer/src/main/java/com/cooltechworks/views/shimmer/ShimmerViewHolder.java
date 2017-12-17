@@ -25,11 +25,6 @@ import android.view.ViewGroup;
 
 import io.supercharge.shimmerlayout.ShimmerLayout;
 
-
-/**
- * Created by sharish on 22/11/16.
- */
-
 public class ShimmerViewHolder extends RecyclerView.ViewHolder {
 
     private ShimmerLayout mShimmerLayout;
@@ -59,12 +54,8 @@ public class ShimmerViewHolder extends RecyclerView.ViewHolder {
         mShimmerLayout.setShimmerAnimationDuration(duration);
     }
 
-    /**
-     * Binds the view
-     */
     public void bind() {
-        ShimmerLayout layout = (ShimmerLayout) itemView;
-        layout.startShimmerAnimation();
+        mShimmerLayout.startShimmerAnimation();
     }
 
     private void setBackground(Drawable background) {

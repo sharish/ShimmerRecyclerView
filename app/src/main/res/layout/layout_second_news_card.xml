@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -29,7 +28,7 @@
                 android:paddingRight="16dp"
                 android:textColor="@color/textPrimary"
                 android:textSize="16sp"
-                tools:text="@string/got_titletext"/>
+                tools:text="@string/got_titletext" />
 
             <TextView
                 android:id="@+id/card_subtitle"
@@ -41,7 +40,7 @@
                 android:paddingRight="16dp"
                 android:textColor="@color/textSecondary"
                 android:textSize="14sp"
-                tools:text="@string/got_subtext"/>
+                tools:text="@string/got_subtext" />
         </LinearLayout>
 
         <ImageView
@@ -49,7 +48,7 @@
             android:layout_width="78dp"
             android:layout_height="78dp"
             android:layout_marginRight="16dp"
-            android:src="#16000000"/>
+            android:src="#16000000" />
     </LinearLayout>
 
     <TextView
@@ -62,7 +61,7 @@
         android:paddingRight="16dp"
         android:textColor="@color/textPrimary"
         android:textSize="14sp"
-        tools:text="@string/got_summarytext"/>
+        tools:text="@string/got_summarytext" />
 
 </LinearLayout>
 
