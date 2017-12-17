@@ -48,10 +48,10 @@ public class ItemHolder extends RecyclerView.ViewHolder {
     private ItemHolder(View itemView) {
         super(itemView);
 
-        mTitleView = (TextView) itemView.findViewById(R.id.card_title);
-        mDescView = (TextView) itemView.findViewById(R.id.card_subtitle);
-        mSummaryView = (TextView) itemView.findViewById(R.id.card_summary);
-        mThumbnailView = (ImageView) itemView.findViewById(R.id.card_image);
+        mTitleView =  itemView.findViewById(R.id.card_title);
+        mDescView =  itemView.findViewById(R.id.card_subtitle);
+        mSummaryView =  itemView.findViewById(R.id.card_summary);
+        mThumbnailView = itemView.findViewById(R.id.card_image);
     }
 
     public void bind(ItemCard card) {
