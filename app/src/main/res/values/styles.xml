@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppThemeGrid" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryGrid</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGrid</item>
+        <item name="colorAccent">@color/colorAccentGrid</item>
+        <item name="android:label">@string/ab_grid_title</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:label">@string/ab_list_title</item>
+    </style>
+</resources>

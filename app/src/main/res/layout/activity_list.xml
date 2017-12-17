@@ -29,7 +29,6 @@ limitations under the License.
         android:layout_height="match_parent"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
-        app:shimmer_demo_child_count="10"
         app:shimmer_demo_layout="@layout/layout_demo"
         app:shimmer_demo_shimmer_color="#73ffffff" />
 

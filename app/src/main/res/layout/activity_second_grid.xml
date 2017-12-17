@@ -7,8 +7,6 @@
     android:paddingBottom="10dp"
     android:paddingTop="10dp"
     app:shimmer_demo_angle="20"
-    app:shimmer_demo_child_count="10"
-    app:shimmer_demo_grid_child_count="2"
     app:shimmer_demo_layout="@layout/layout_second_demo_grid"
     app:shimmer_demo_layout_manager_type="grid"
     app:shimmer_demo_shimmer_color="@color/shimmer_color"

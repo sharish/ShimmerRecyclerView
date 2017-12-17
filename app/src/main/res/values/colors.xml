@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#455a64</color>
+    <color name="colorPrimaryDark">#374850</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimaryGrid">#2874f0</color>
+    <color name="colorPrimaryDarkGrid">#2368d7</color>
+    <color name="colorAccentGrid">#388e3c</color>
+
+    <color name="textPrimaryGrid">#717171</color>
+    <color name="textSecondaryGrid">@color/colorAccentGrid</color>
+    <color name="textTertiaryGrid">#737373</color>
+
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#8b8b8b</color>
+
+    <color name="demo_dark_transparent">#24000000</color>
+</resources>
