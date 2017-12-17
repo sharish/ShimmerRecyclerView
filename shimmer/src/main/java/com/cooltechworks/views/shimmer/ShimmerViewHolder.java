@@ -59,12 +59,8 @@ public class ShimmerViewHolder extends RecyclerView.ViewHolder {
         mShimmerLayout.setShimmerAnimationDuration(duration);
     }
 
-    /**
-     * Binds the view
-     */
     public void bind() {
-        ShimmerLayout layout = (ShimmerLayout) itemView;
-        layout.startShimmerAnimation();
+        mShimmerLayout.startShimmerAnimation();
     }
 
     private void setBackground(Drawable background) {

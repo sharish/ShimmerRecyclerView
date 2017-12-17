@@ -43,12 +43,15 @@ public class ItemHolder extends RecyclerView.ViewHolder {
     private TextView mSummaryView;
 
     public static ItemHolder newInstance(ViewGroup container, int type) {
-        View root = LayoutInflater.from(container.getContext()).inflate(getLayoutResourceId(type), container, false);
+        View root = LayoutInflater.from(container.getContext()).inflate(getLayoutResourceId(type),
+                container, false);
+
         return new ItemHolder(root);
     }
 
     private ItemHolder(View itemView) {
         super(itemView);
+
         mTitleView = (TextView) itemView.findViewById(R.id.card_title);
         mDescView = (TextView) itemView.findViewById(R.id.card_subtitle);
         mSummaryView = (TextView) itemView.findViewById(R.id.card_summary);

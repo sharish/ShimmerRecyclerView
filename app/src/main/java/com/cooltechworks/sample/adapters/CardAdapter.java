@@ -22,13 +22,16 @@ import com.cooltechworks.sample.models.ItemCard;
 import com.cooltechworks.sample.utils.BaseUtils;
 import com.cooltechworks.sample.viewholders.ItemHolder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by sharish on 27/12/16.
  */
 
 public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
-    private ItemCard[] mCards = new ItemCard[0];
+    private List<ItemCard> mCards = new ArrayList<>();
     private int mType = BaseUtils.TYPE_LIST;
 
     @Override
@@ -38,18 +41,19 @@ public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
-        holder.bind(mCards[position]);
+        holder.bind(mCards.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mCards.length;
+        return mCards.size();
     }
 
-    public void setCards(ItemCard[] cards) {
+    public void setCards(List<ItemCard> cards) {
         if (cards == null) {
-            mCards = new ItemCard[0];
+            return;
         }
+
         mCards = cards;
     }
 
