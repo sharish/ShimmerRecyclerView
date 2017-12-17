@@ -28,10 +28,6 @@ import com.cooltechworks.sample.utils.view.CardPaddingItemDecoration;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by sharish on 27/12/16.
- */
-
 public class BaseUtils {
 
     public static final int TYPE_LIST = 0;

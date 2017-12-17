@@ -26,10 +26,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-/**
- * Created by sharish on 22/11/16.
- */
-
 public class ShimmerRecyclerView extends RecyclerView {
 
     public enum LayoutMangerType {

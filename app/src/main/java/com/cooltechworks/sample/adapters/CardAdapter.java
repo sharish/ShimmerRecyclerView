@@ -25,10 +25,6 @@ import com.cooltechworks.sample.viewholders.ItemHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by sharish on 27/12/16.
- */
-
 public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
     private List<ItemCard> mCards = new ArrayList<>();

@@ -31,10 +31,6 @@ import static com.cooltechworks.sample.utils.BaseUtils.TYPE_LIST;
 import static com.cooltechworks.sample.utils.BaseUtils.TYPE_SECOND_GRID;
 import static com.cooltechworks.sample.utils.BaseUtils.TYPE_SECOND_LIST;
 
-/**
- * Created by sharish on 27/12/16.
- */
-
 public class ItemHolder extends RecyclerView.ViewHolder {
 
     private TextView mTitleView;

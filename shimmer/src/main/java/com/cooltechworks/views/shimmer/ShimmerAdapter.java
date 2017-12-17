@@ -22,10 +22,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-/**
- * Created by sharish on 22/11/16.
- */
-
 public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
     private int mItemCount;
