@@ -91,7 +91,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.sharish:ShimmerRecyclerView:v1.1'
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.2'
 }
 ```
 
