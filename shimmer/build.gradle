@@ -20,6 +20,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:recyclerview-v7:27.0.2'
-    implementation 'io.supercharge:shimmerlayout:1.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.0'
+    implementation 'io.supercharge:shimmerlayout:2.1.0'
 }
