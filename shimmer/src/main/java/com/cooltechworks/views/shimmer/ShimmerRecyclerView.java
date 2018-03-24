@@ -65,6 +65,7 @@ public class ShimmerRecyclerView extends RecyclerView {
         int mShimmerAngle;
         int mShimmerColor;
         int mShimmerDuration;
+        boolean isAnimationReversed;
         Drawable mShimmerItemBackground;
 
         try {
@@ -91,6 +92,7 @@ public class ShimmerRecyclerView extends RecyclerView {
             mShimmerColor = a.getColor(R.styleable.ShimmerRecyclerView_shimmer_demo_shimmer_color, getColor(R.color.default_shimmer_color));
             mShimmerItemBackground = a.getDrawable(R.styleable.ShimmerRecyclerView_shimmer_demo_view_holder_item_background);
             mShimmerDuration = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 1500);
+            isAnimationReversed = a.getBoolean(R.styleable.ShimmerRecyclerView_shimmer_demo_reverse_animation, false);
         } finally {
             a.recycle();
         }
@@ -99,6 +101,7 @@ public class ShimmerRecyclerView extends RecyclerView {
         mShimmerAdapter.setShimmerColor(mShimmerColor);
         mShimmerAdapter.setShimmerItemBackground(mShimmerItemBackground);
         mShimmerAdapter.setShimmerDuration(mShimmerDuration);
+        mShimmerAdapter.setAnimationReversed(isAnimationReversed);
 
         showShimmerAdapter();
     }

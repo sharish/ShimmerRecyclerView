@@ -54,6 +54,10 @@ public class ShimmerViewHolder extends RecyclerView.ViewHolder {
         mShimmerLayout.setShimmerAnimationDuration(duration);
     }
 
+    public void setAnimationReversed(boolean animationReversed) {
+        mShimmerLayout.setAnimationReversed(animationReversed);
+    }
+
     public void bind() {
         mShimmerLayout.startShimmerAnimation();
     }
