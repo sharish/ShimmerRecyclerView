@@ -29,6 +29,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
     private int mShimmerAngle;
     private int mShimmerColor;
     private int mShimmerDuration;
+    private float mShimmerMaskWidth;
     private boolean isAnimationReversed;
     private Drawable mShimmerItemBackground;
 
@@ -39,6 +40,7 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
         ShimmerViewHolder shimmerViewHolder = new ShimmerViewHolder(inflater, parent, mLayoutReference);
         shimmerViewHolder.setShimmerColor(mShimmerColor);
         shimmerViewHolder.setShimmerAngle(mShimmerAngle);
+        shimmerViewHolder.setShimmerMaskWidth(mShimmerMaskWidth);
         shimmerViewHolder.setShimmerViewHolderBackground(mShimmerItemBackground);
         shimmerViewHolder.setShimmerAnimationDuration(mShimmerDuration);
         shimmerViewHolder.setAnimationReversed(isAnimationReversed);
@@ -66,6 +68,10 @@ public class ShimmerAdapter extends RecyclerView.Adapter<ShimmerViewHolder> {
 
     public void setShimmerColor(int shimmerColor) {
         this.mShimmerColor = shimmerColor;
+    }
+
+    public void setShimmerMaskWidth(float maskWidth) {
+        this.mShimmerMaskWidth = maskWidth;
     }
 
     public void setShimmerItemBackground(Drawable shimmerItemBackground) {

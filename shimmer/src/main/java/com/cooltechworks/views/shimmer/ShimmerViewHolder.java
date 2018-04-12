@@ -44,6 +44,10 @@ public class ShimmerViewHolder extends RecyclerView.ViewHolder {
         mShimmerLayout.setShimmerColor(color);
     }
 
+    public void setShimmerMaskWidth(float maskWidth) {
+        mShimmerLayout.setMaskWidth(maskWidth);
+    }
+
     public void setShimmerViewHolderBackground(Drawable viewHolderBackground) {
         if (viewHolderBackground != null) {
             setBackground(viewHolderBackground);
