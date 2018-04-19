@@ -65,6 +65,7 @@ public class ShimmerRecyclerView extends RecyclerView {
         int mShimmerAngle;
         int mShimmerColor;
         int mShimmerDuration;
+        float mShimmerMaskWidth;
         boolean isAnimationReversed;
         Drawable mShimmerItemBackground;
 
@@ -92,6 +93,7 @@ public class ShimmerRecyclerView extends RecyclerView {
             mShimmerColor = a.getColor(R.styleable.ShimmerRecyclerView_shimmer_demo_shimmer_color, getColor(R.color.default_shimmer_color));
             mShimmerItemBackground = a.getDrawable(R.styleable.ShimmerRecyclerView_shimmer_demo_view_holder_item_background);
             mShimmerDuration = a.getInteger(R.styleable.ShimmerRecyclerView_shimmer_demo_duration, 1500);
+            mShimmerMaskWidth = a.getFloat(R.styleable.ShimmerRecyclerView_shimmer_demo_mask_width, 0.5f);
             isAnimationReversed = a.getBoolean(R.styleable.ShimmerRecyclerView_shimmer_demo_reverse_animation, false);
         } finally {
             a.recycle();
@@ -99,6 +101,7 @@ public class ShimmerRecyclerView extends RecyclerView {
 
         mShimmerAdapter.setShimmerAngle(mShimmerAngle);
         mShimmerAdapter.setShimmerColor(mShimmerColor);
+        mShimmerAdapter.setShimmerMaskWidth(mShimmerMaskWidth);
         mShimmerAdapter.setShimmerItemBackground(mShimmerItemBackground);
         mShimmerAdapter.setShimmerDuration(mShimmerDuration);
         mShimmerAdapter.setAnimationReversed(isAnimationReversed);
@@ -140,6 +143,16 @@ public class ShimmerRecyclerView extends RecyclerView {
      */
     public void setDemoShimmerDuration(int duration) {
         mShimmerAdapter.setShimmerDuration(duration);
+    }
+
+    /**
+     * Specifies the the width of the shimmer line.
+     *
+     * @param maskWidth - float specifying the width of shimmer line. The value should be from 0 to less or equal to 1.
+     *                  The default value is 0.5.
+     */
+    public void setDemoShimmerMaskWidth(float maskWidth) {
+        mShimmerAdapter.setShimmerMaskWidth(maskWidth);
     }
 
     /**

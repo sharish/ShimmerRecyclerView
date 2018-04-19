@@ -49,6 +49,7 @@ Following are the attributes and methods to initialise the demo views.
 |```app:shimmer_demo_layout_manager_type``` | ```setDemoLayoutManager(LayoutManagerType)``` | Layout manager of demo view. Can be one among linear_vertical or linear_horizontal or grid. |
 |```app:shimmer_demo_shimmer_color``` | ``` - ``` | Color reference or value. It can be used to change the color of the shimmer line. |
 |```app:shimmer_demo_angle``` | ``` - ``` | Integer value between 0 and 30 which can modify the angle of the shimmer line. The default value is zero. |
+|```app:shimmer_demo_mask_width``` | ``` setDemoShimmerMaskWidth(float) ``` | Float value between 0 and 1 which can modify the width of the shimmer line. The default value is 0.5. |
 |```app:shimmer_demo_view_holder_item_background``` | ``` - ``` | Color or an xml drawable for the ViewHolder background if you want to achieve the second type of shimmer effect. |
 |```app:shimmer_demo_reverse_animation``` | ``` - ``` | Defines whether the animation should be reversed. If it is true, then the animation starts from the right side of the View. Default value is false. |
 
@@ -65,10 +66,10 @@ Define your xml as:
         android:id="@+id/shimmer_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:demo_child_count="10"
-        app:demo_grid_child_count="2"
-        app:demo_layout="@layout/layout_demo_grid"
-        app:demo_layout_manager_type="grid"
+        app:shimmer_demo_child_count="10"
+        app:shimmer_demo_grid_child_count="2"
+        app:shimmer_demo_layout="@layout/layout_demo_grid"
+        app:shimmer_demo_layout_manager_type="grid"
         app:shimmer_demo_angle="20"
         />
 
