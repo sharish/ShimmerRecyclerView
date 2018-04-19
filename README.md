@@ -66,10 +66,10 @@ Define your xml as:
         android:id="@+id/shimmer_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:demo_child_count="10"
-        app:demo_grid_child_count="2"
-        app:demo_layout="@layout/layout_demo_grid"
-        app:demo_layout_manager_type="grid"
+        app:shimmer_demo_child_count="10"
+        app:shimmer_demo_grid_child_count="2"
+        app:shimmer_demo_layout="@layout/layout_demo_grid"
+        app:shimmer_demo_layout_manager_type="grid"
         app:shimmer_demo_angle="20"
         />
 
