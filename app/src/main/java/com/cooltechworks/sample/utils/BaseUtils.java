@@ -26,6 +26,7 @@ import com.cooltechworks.sample.models.ItemCard;
 import com.cooltechworks.sample.utils.view.CardPaddingItemDecoration;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class BaseUtils {
@@ -48,7 +49,7 @@ public class BaseUtils {
         ItemCard jetCard = createItemCard(resources, R.string.jet_titletext, R.string.jet_image_url,
                 R.string.jet_subtext, R.string.jet_summarytext);
 
-        return Arrays.asList(ndtvCard, opCard, gotCard, jetCard);
+        return Collections.singletonList(ndtvCard);
     }
 
     private static List<ItemCard> getGridCards(Resources resources) {
@@ -96,13 +97,19 @@ public class BaseUtils {
         DemoConfiguration demoConfiguration;
 
         switch (configurationType) {
-            case TYPE_LIST:
+            case TYPE_LIST: {
+
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+
                 demoConfiguration = new DemoConfiguration();
                 demoConfiguration.setStyleResource(R.style.AppTheme);
                 demoConfiguration.setLayoutResource(R.layout.activity_list);
-                demoConfiguration.setLayoutManager(new LinearLayoutManager(context));
+                demoConfiguration.setLayoutManager(linearLayoutManager);
                 demoConfiguration.setTitleResource(R.string.ab_list_title);
                 break;
+            }
             case TYPE_GRID:
                 demoConfiguration = new DemoConfiguration();
                 demoConfiguration.setStyleResource(R.style.AppThemeGrid);

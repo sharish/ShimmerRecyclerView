@@ -31,31 +31,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button firstListDemoButton = findViewById(R.id.list_demo_button);
-        final Button firstGridDemoButton = findViewById(R.id.grid_demo_button);
+        final Button shimmerRecyclerViewButton = findViewById(R.id.list_demo_button);
+        final Button normalRecyclerViewButton = findViewById(R.id.list_demo_button_normal);
 
-        createClickListener(firstListDemoButton, BaseUtils.TYPE_LIST);
-        createClickListener(firstGridDemoButton, BaseUtils.TYPE_GRID);
-
-        final Button secondListDemoButton = findViewById(R.id.list_second_demo_button);
-        final Button secondGridDemoButton = findViewById(R.id.grid_second_demo_button);
-
-        createClickListener(secondListDemoButton, BaseUtils.TYPE_SECOND_LIST);
-        createClickListener(secondGridDemoButton, BaseUtils.TYPE_SECOND_GRID);
-    }
-
-    private void createClickListener(Button button, final int demoType) {
-        button.setOnClickListener(new View.OnClickListener() {
+        shimmerRecyclerViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startDemo(demoType);
+
+                Intent intent = new Intent(MainActivity.this,  DemoActivity.class);
+                intent.putExtra(DemoActivity.EXTRA_TYPE, BaseUtils.TYPE_LIST);
+                startActivity(intent);
             }
         });
-    }
 
-    private void startDemo(int demoType) {
-        Intent intent = new Intent(this, DemoActivity.class);
-        intent.putExtra(DemoActivity.EXTRA_TYPE, demoType);
-        startActivity(intent);
+        normalRecyclerViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,  DemoActivityNormalRecycler.class);
+                intent.putExtra(DemoActivity.EXTRA_TYPE, BaseUtils.TYPE_LIST);
+                startActivity(intent);
+            }
+        });
     }
 }

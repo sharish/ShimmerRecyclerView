@@ -36,7 +36,15 @@ limitations under the License.
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
-        android:text="@string/list_demo" />
+        android:text="SHIMMER RECYCLER VIEW" />
+
+    <Button
+        android:id="@+id/list_demo_button_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:minWidth="200dp"
+        android:text="NORMAL RECYCLER VIEW" />
 
     <Button
         android:id="@+id/grid_demo_button"
@@ -44,6 +52,7 @@ limitations under the License.
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
+        android:visibility="gone"
         android:text="@string/grid_demo" />
 
     <Button
@@ -53,6 +62,7 @@ limitations under the License.
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:minWidth="200dp"
+        android:visibility="gone"
         android:text="@string/second_list_demo" />
 
     <Button
@@ -61,6 +71,7 @@ limitations under the License.
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:minWidth="200dp"
+        android:visibility="gone"
         android:text="@string/second_grid_demo" />
 
     <android.support.v4.widget.Space

@@ -35,7 +35,7 @@ public class ShimmerRecyclerView extends RecyclerView {
     private Adapter mActualAdapter;
     private ShimmerAdapter mShimmerAdapter;
 
-    private LayoutManager mShimmerLayoutManager;
+    private LinearLayoutManager mShimmerLayoutManager;
     private LayoutManager mActualLayoutManager;
     private LayoutMangerType mLayoutMangerType;
 
@@ -164,6 +164,9 @@ public class ShimmerRecyclerView extends RecyclerView {
         if (mShimmerLayoutManager == null) {
             initShimmerManager();
         }
+
+        mShimmerLayoutManager.setReverseLayout(true);
+        mShimmerLayoutManager.setStackFromEnd(true);
 
         setLayoutManager(mShimmerLayoutManager);
         setAdapter(mShimmerAdapter);

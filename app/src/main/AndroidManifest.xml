@@ -41,5 +41,10 @@ limitations under the License.
             android:name="com.cooltechworks.sample.DemoActivity"
             android:theme="@style/AppThemeGrid">
         </activity>
+
+        <activity
+            android:name="com.cooltechworks.sample.DemoActivityNormalRecycler"
+            android:theme="@style/AppThemeGrid">
+        </activity>
     </application>
 </manifest>
