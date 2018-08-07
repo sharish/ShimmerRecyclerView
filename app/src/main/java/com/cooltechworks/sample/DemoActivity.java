@@ -37,34 +37,40 @@ public class DemoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         final int type = getType();
+        setContentView(R.layout.act_frag_container);
 
-        RecyclerView.LayoutManager layoutManager;
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new MainFragment())
+                .commit();
 
-        final DemoConfiguration demoConfiguration = BaseUtils.getDemoConfiguration(type, this);
-        setTheme(demoConfiguration.getStyleResource());
-        setContentView(demoConfiguration.getLayoutResource());
-        layoutManager = demoConfiguration.getLayoutManager();
-        setTitle(demoConfiguration.getTitleResource());
 
-        shimmerRecycler = findViewById(R.id.shimmer_recycler_view);
-
-        if (demoConfiguration.getItemDecoration() != null) {
-            shimmerRecycler.addItemDecoration(demoConfiguration.getItemDecoration());
-        }
-
-        mAdapter = new CardAdapter();
-        mAdapter.setType(type);
-
-        shimmerRecycler.setLayoutManager(layoutManager);
-        shimmerRecycler.setAdapter(mAdapter);
-        shimmerRecycler.showShimmerAdapter();
-
-        shimmerRecycler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadCards();
-            }
-        }, 3000);
+//        RecyclerView.LayoutManager layoutManager;
+//
+//        final DemoConfiguration demoConfiguration = BaseUtils.getDemoConfiguration(type, this);
+//        setTheme(demoConfiguration.getStyleResource());
+//        setContentView(demoConfiguration.getLayoutResource());
+//        layoutManager = demoConfiguration.getLayoutManager();
+//        setTitle(demoConfiguration.getTitleResource());
+//
+//        shimmerRecycler = findViewById(R.id.shimmer_recycler_view);
+//
+//        if (demoConfiguration.getItemDecoration() != null) {
+//            shimmerRecycler.addItemDecoration(demoConfiguration.getItemDecoration());
+//        }
+//
+//        mAdapter = new CardAdapter();
+//        mAdapter.setType(type);
+//
+//        shimmerRecycler.setLayoutManager(layoutManager);
+//        shimmerRecycler.setAdapter(mAdapter);
+//        shimmerRecycler.showShimmerAdapter();
+//
+//        shimmerRecycler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                loadCards();
+//            }
+//        }, 3000);
     }
 
     private void loadCards() {

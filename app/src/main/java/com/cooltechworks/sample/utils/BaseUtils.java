@@ -25,6 +25,7 @@ import com.cooltechworks.sample.R;
 import com.cooltechworks.sample.models.ItemCard;
 import com.cooltechworks.sample.utils.view.CardPaddingItemDecoration;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,7 +49,9 @@ public class BaseUtils {
         ItemCard jetCard = createItemCard(resources, R.string.jet_titletext, R.string.jet_image_url,
                 R.string.jet_subtext, R.string.jet_summarytext);
 
-        return Arrays.asList(ndtvCard, opCard, gotCard, jetCard);
+        ArrayList<ItemCard> itemCardList = new ArrayList<>();
+        itemCardList.addAll(Arrays.asList(ndtvCard, opCard, gotCard, jetCard));
+        return itemCardList;
     }
 
     private static List<ItemCard> getGridCards(Resources resources) {
@@ -80,6 +83,10 @@ public class BaseUtils {
             case TYPE_LIST:
             case TYPE_SECOND_LIST:
                 itemCards = getListCards(resources);
+                itemCards.addAll(getListCards(resources)); // repeat to make the list larger
+                itemCards.addAll(getListCards(resources)); // repeat to make the list larger
+                itemCards.addAll(getListCards(resources)); // repeat to make the list larger
+
                 break;
             case TYPE_GRID:
             case TYPE_SECOND_GRID:

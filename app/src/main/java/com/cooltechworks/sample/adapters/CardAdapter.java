@@ -15,7 +15,9 @@
  */
 package com.cooltechworks.sample.adapters;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.cooltechworks.sample.models.ItemCard;
@@ -27,17 +29,34 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
+    public interface OnItemClickListener {
+        void onClick(CardAdapter adapter, int position);
+
+    }
+
     private List<ItemCard> mCards = new ArrayList<>();
     private int mType = BaseUtils.TYPE_LIST;
 
+    public OnItemClickListener mItemClickListener;
+
+
     @Override
-    public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return ItemHolder.newInstance(parent, mType);
     }
 
     @Override
-    public void onBindViewHolder(ItemHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemHolder holder, final int position) {
         holder.bind(mCards.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(mItemClickListener != null) {
+                    mItemClickListener.onClick(CardAdapter.this, position);
+                }
+            }
+        });
     }
 
     @Override
