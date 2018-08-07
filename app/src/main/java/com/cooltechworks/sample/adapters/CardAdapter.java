@@ -29,6 +29,8 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
+
+
     public interface OnItemClickListener {
         void onClick(CardAdapter adapter, int position);
 
@@ -37,8 +39,12 @@ public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
     private List<ItemCard> mCards = new ArrayList<>();
     private int mType = BaseUtils.TYPE_LIST;
 
-    public OnItemClickListener mItemClickListener;
+    private OnItemClickListener mItemClickListener;
 
+
+    public void setItemClickListener(OnItemClickListener onItemClickListener) {
+        mItemClickListener = onItemClickListener;
+    }
 
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

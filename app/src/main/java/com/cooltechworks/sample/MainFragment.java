@@ -59,7 +59,7 @@ public class MainFragment extends Fragment {
 
         mAdapter = new CardAdapter();
         mAdapter.setType(TYPE_LIST);
-        mAdapter.mItemClickListener = new CardAdapter.OnItemClickListener() {
+        mAdapter.setItemClickListener( new CardAdapter.OnItemClickListener() {
             @Override
             public void onClick(CardAdapter adapter, int position) {
 
@@ -67,7 +67,7 @@ public class MainFragment extends Fragment {
                 intent.setData(Uri.parse("http://www.google.com"));
                 startActivity(intent);
             }
-        };
+        });
 
         shimmerRecycler.setLayoutManager(layoutManager);
         shimmerRecycler.setAdapter(mAdapter);
