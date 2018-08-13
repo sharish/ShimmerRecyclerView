@@ -207,6 +207,11 @@ public class ShimmerRecyclerView extends RecyclerView {
         return mActualAdapter;
     }
 
+    public Adapter getShimmerAdapter() {
+        return mShimmerAdapter;
+    }
+
+
     public int getLayoutReference() {
         return mLayoutReference;
     }
