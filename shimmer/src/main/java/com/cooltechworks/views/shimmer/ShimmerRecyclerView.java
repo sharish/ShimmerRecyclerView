@@ -29,7 +29,7 @@ import android.util.AttributeSet;
 public class ShimmerRecyclerView extends RecyclerView {
 
     public enum LayoutMangerType {
-        LINEAR_VERTICAL, LINEAR_HORIZONTAL, GRID
+        LINEAR_VERTICAL, LINEAR_HORIZONTAL, GRID_VERTICAL, GRID_HORIZONTAL
     }
 
     private Adapter mActualAdapter;
@@ -83,7 +83,10 @@ public class ShimmerRecyclerView extends RecyclerView {
                     setDemoLayoutManager(LayoutMangerType.LINEAR_HORIZONTAL);
                     break;
                 case 2:
-                    setDemoLayoutManager(LayoutMangerType.GRID);
+                    setDemoLayoutManager(LayoutMangerType.GRID_VERTICAL);
+                    break;
+                case 3:
+                    setDemoLayoutManager(LayoutMangerType.GRID_HORIZONTAL);
                     break;
                 default:
                     throw new IllegalArgumentException("This value for layout manager is not valid!");
@@ -242,8 +245,15 @@ public class ShimmerRecyclerView extends RecyclerView {
                     }
                 };
                 break;
-            case GRID:
+            case GRID_VERTICAL:
                 mShimmerLayoutManager = new GridLayoutManager(getContext(), mGridCount) {
+                    public boolean canScrollVertically() {
+                        return mCanScroll;
+                    }
+                };
+                break;
+            case GRID_HORIZONTAL:
+                mShimmerLayoutManager = new GridLayoutManager(getContext(), mGridCount, LinearLayoutManager.HORIZONTAL, false) {
                     public boolean canScrollVertically() {
                         return mCanScroll;
                     }
