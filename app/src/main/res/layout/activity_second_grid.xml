@@ -8,6 +8,6 @@
     android:paddingTop="10dp"
     app:shimmer_demo_angle="20"
     app:shimmer_demo_layout="@layout/layout_second_demo_grid"
-    app:shimmer_demo_layout_manager_type="grid"
+    app:shimmer_demo_layout_manager_type="grid_vertical"
     app:shimmer_demo_shimmer_color="@color/shimmer_color"
     app:shimmer_demo_view_holder_item_background="@drawable/bg_sharp_card" />
