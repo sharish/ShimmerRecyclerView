@@ -17,9 +17,9 @@ package com.cooltechworks.sample.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.StringRes;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.cooltechworks.sample.R;
 import com.cooltechworks.sample.models.ItemCard;

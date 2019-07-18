@@ -8,9 +8,12 @@ android:
     - tools
     - platform-tools
     - tools
-    - build-tools-27.0.3
-    - android-27
     - extra-android-m2repository
-
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 before_install:
-- yes | sdkmanager "platforms;android-27" # https://github.com/travis-ci/travis-ci/issues/8651
+  - touch $HOME/.android/repositories.cfg
+  - yes | sdkmanager "platforms;android-29"
+  - yes | sdkmanager "build-tools;29.0.1"

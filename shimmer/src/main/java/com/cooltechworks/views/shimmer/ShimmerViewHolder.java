@@ -19,10 +19,10 @@ package com.cooltechworks.views.shimmer;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.RecyclerView;
 import io.supercharge.shimmerlayout.ShimmerLayout;
 
 public class ShimmerViewHolder extends RecyclerView.ViewHolder {
