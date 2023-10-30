@@ -25,7 +25,7 @@ limitations under the License.
     android:orientation="vertical"
     tools:context="com.cooltechworks.sample.MainActivity">
 
-    <android.support.v4.widget.Space
+    <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -63,7 +63,7 @@ limitations under the License.
         android:minWidth="200dp"
         android:text="@string/second_grid_demo" />
 
-    <android.support.v4.widget.Space
+    <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

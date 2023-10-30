@@ -21,10 +21,9 @@ package com.cooltechworks.sample
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.cooltechworks.sample.utils.BaseUtils
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,10 +31,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        createClickListener(list_demo_button, BaseUtils.TYPE_LIST)
-        createClickListener(grid_demo_button, BaseUtils.TYPE_GRID)
-        createClickListener(list_second_demo_button, BaseUtils.TYPE_SECOND_LIST)
-        createClickListener(grid_second_demo_button, BaseUtils.TYPE_SECOND_GRID)
+        val button: (Int) -> Button = { findViewById(it) }
+
+        createClickListener(button(R.id.list_demo_button), BaseUtils.TYPE_LIST)
+        createClickListener(button(R.id.grid_demo_button), BaseUtils.TYPE_GRID)
+        createClickListener(button(R.id.list_second_demo_button), BaseUtils.TYPE_SECOND_LIST)
+        createClickListener(button(R.id.grid_second_demo_button), BaseUtils.TYPE_SECOND_GRID)
     }
 
     private fun createClickListener(button: Button, demoType: Int) {
