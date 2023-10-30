@@ -228,6 +228,7 @@ class ShimmerRecyclerView : RecyclerView {
                     return mCanScroll
                 }
             }
+            else -> Unit
         }
     }
 
